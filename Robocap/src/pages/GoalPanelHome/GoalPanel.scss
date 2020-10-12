@@ -1,0 +1,14 @@
+.home-page {
+  background-color: #f6f8fc;
+  .user-graph {
+    display: flex;
+    background-color: #f6f8fc;
+    .user-total-assets-graph {
+      padding: 10px;
+      border-radius: 40px;
+    }
+    .user-total-return-graph {
+      padding: 10px;
+    }
+  }
+}
