@@ -1,13 +1,10 @@
 import React from "react";
 import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
-import "./TotalGraph.scss";
+import "./ReturnGraph.scss";
 import { data } from "../../../assets/dummyData/dummy";
 
 const options = {
-  title: {
-    text: "Total Return",
-  },
   rangeSelector: {
     selected: 1,
   },
@@ -37,7 +34,29 @@ const options = {
 
 const ReturnGraph = () => (
   <div className="return-chart">
-    <HighchartsReact highcharts={Highcharts} constructorType={"stockChart"} options={options} />
+    <div className="chart-info">
+      <h1>Total Return</h1>
+      <div className="chart-value">
+        <div>
+          <h5>Last Seven Days</h5>
+          <p>44.28k</p>
+        </div>
+        <div>
+          <h5>Last Month</h5>
+          <p>53.71k</p>
+        </div>
+        <div>
+          <h5>Overall</h5>
+          <p>21.28%</p>
+        </div>
+      </div>
+    </div>
+    <HighchartsReact
+      className="main-chart"
+      highcharts={Highcharts}
+      constructorType={"stockChart"}
+      options={options}
+    />
   </div>
 );
 

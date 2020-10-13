@@ -5,9 +5,6 @@ import "./TotalGraph.scss";
 import { data } from "../../../assets/dummyData/dummy";
 
 const options = {
-  title: {
-    text: "Total Managed Assets",
-  },
   rangeSelector: {
     selected: 1,
   },
@@ -37,8 +34,25 @@ const options = {
 
 const TotalGraph = () => (
   <div className="total-chart">
+    <div className="chart-info">
+      <h1>Total Managed Assets</h1>
+      <div className="chart-value">
+        <div>
+          <h5>Beginning</h5>
+          <p>44.28k</p>
+        </div>
+        <div>
+          <h5>Ending</h5>
+          <p>53.71k</p>
+        </div>
+        <div>
+          <h5>Overall</h5>
+          <p>21.28%</p>
+        </div>
+      </div>
+    </div>
     <HighchartsReact
-      className="highcharts-container"
+      className="main-chart"
       highcharts={Highcharts}
       constructorType={"stockChart"}
       options={options}

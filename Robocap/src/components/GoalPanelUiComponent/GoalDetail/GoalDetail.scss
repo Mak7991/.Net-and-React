@@ -1,6 +1,39 @@
-.user-goal{
+.user-goal {
+  width: 100%;
+  height: 800px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #fff;
+  .goal-collapse {
     width: 100%;
-    height: 500px;
-    padding: 5px;
     background-color: #fff;
+    .goal-collapse-inner {
+      display: flex;
+      flex: 0 0 100%;
+      .goal-disc {
+        flex: 0 0 50%;
+        h5 {
+          font-size: 16px;
+          color: #888e98;
+        }
+        p {
+          font-size: 16px;
+          font-weight: 500;
+        }
+      }
+      .goal-allocation {
+        flex: 0 0 50%;
+        h1{
+            font-size: 18px;
+            color: #888e98;
+        }
+      }
+    }
+  }
+  .mannage-acct{
+      padding: 5px;
+      h1{
+          padding: 10px;
+      }
+  }
 }
