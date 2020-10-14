@@ -6,7 +6,7 @@ const SubNav = () => {
   return (
     <Menu mode="horizontal" className="leftMenu">
       <Menu.Item key="mail" >
-        <Link to="/GoalPanel">Home</Link>
+        <Link to="/ClientPanel">Home</Link>
       </Menu.Item>
       <Menu.Item key="">
         <Link to="/performance">Performance</Link>

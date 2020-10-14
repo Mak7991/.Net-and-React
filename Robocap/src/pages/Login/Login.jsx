@@ -1,24 +1,32 @@
 import React from "react";
-import { Form, Input } from "antd";
-import { Link } from 'react-router-dom';
+import { Button, Form, Input } from "antd";
+import { Redirect } from "react-router-dom";
 import "antd/dist/antd.css";
 import "./Login.scss";
 
+const values = [
+  {
+    emailAddress: "maaz123@gmail.com",
+    password: "admin123",
+  },
+];
 
 const Login = () => {
-  const onFinish = (values) => {
-    console.log("Received values of form: ", values);
+  const onFinish = () => {
+    // debugger;
+    if (("Received values of form: ", values.emailAddress, values.password)) {
+      return <Redirect to="/ClientPanel" />;
+    }
   };
-
   return (
     <div className="login">
       <div className="login-body">
         <div className="login-cover">
-          <img src={require("../../assets/images/AuthCover.png")} draggable={false} alt="cover"/>
+          <img src={require("../../assets/images/AuthCover.png")} draggable={false} alt="cover" />
         </div>
         <div className="login-form">
           <div className="form-logo">
-            <img src={require("../../assets/images/logo.png")} alt="logo"/>
+            <img src={require("../../assets/images/logo.png")} alt="logo" />
           </div>
           <div className="login-title">
             <h1>Login To Your Account</h1>
@@ -27,10 +35,10 @@ const Login = () => {
             name="normal_login"
             layout="vertical"
             className="form"
+            onFinish={onFinish}
             initialValues={{
               remember: true,
-            }}
-            onFinish={onFinish}>
+            }}>
             <Form.Item
               label="Email Address:"
               name="emailAddress"
@@ -67,7 +75,13 @@ const Login = () => {
               </a>
             </Form.Item>
             <Form.Item>
-              <Link to="/GoalPanel" className="submit-button">LogIn</Link>
+              <Button
+                className="submit-button"
+                htmlType="submit"
+                type="primary"
+                href="/ClientPanel">
+                LogIn
+              </Button>
             </Form.Item>
           </Form>
         </div>
