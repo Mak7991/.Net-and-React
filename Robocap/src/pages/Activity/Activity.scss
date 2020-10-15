@@ -1,0 +1,61 @@
+.activity-page {
+  background-color: #f6f8fc;
+  height: 785px;
+  .account-activity {
+    margin-top: 20px;
+    padding: 20px;
+    flex: 0 0 100%;
+    background-color: #fff;
+    .filter-bar {
+      display: flex;
+      padding-bottom: 40px;
+      h4 {
+        padding-bottom: 10px;
+      }
+      .account-field {
+        padding-left: 8px;
+        padding-right: 8px;
+        display: block;
+        box-sizing: border-box;
+        float: left;
+        flex: 0 0 25%;
+        position: relative;
+        min-height: 1px;
+      }
+      .type-field {
+        padding-left: 8px;
+        padding-right: 8px;
+        display: block;
+        box-sizing: border-box;
+        float: left;
+        flex: 0 0 25%;
+        position: relative;
+        min-height: 1px;
+      }
+      .start-date {
+        padding-left: 8px;
+        padding-right: 8px;
+        display: block;
+        box-sizing: border-box;
+        float: left;
+        flex: 0 0 25%;
+        position: relative;
+        min-height: 1px;
+      }
+      .end-date {
+        padding-left: 8px;
+        padding-right: 8px;
+        display: block;
+        box-sizing: border-box;
+        float: left;
+        flex: 0 0 25%;
+        position: relative;
+        min-height: 1px;
+      }
+    }
+    .activity-table{
+      background-color: #fff;
+      height: 100%;
+    }
+  }
+}
