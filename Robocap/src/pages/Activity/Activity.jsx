@@ -13,6 +13,11 @@ const { Option } = Select;
 
 const dateFormat = "YYYY/MM/DD";
 
+const data = [
+  {
+  },
+];
+
 const accountsColumns = [
   {
     title: "Account",
@@ -72,7 +77,7 @@ const Activity = () => {
             <div className="account-field">
               <h4> Account:</h4>
               <Select style={{ width: 270 }} allowClear>
-                <Option value="DU1987191">DU!987191</Option>
+                <Option value="DU1987191">DU1987191</Option>
               </Select>
             </div>
             <div className="type-field">
@@ -109,7 +114,12 @@ const Activity = () => {
             </div>
           </div>
           <div className="activity-table">
-          <Table columns={accountsColumns} pagination={true} loading={false} className="table" />
+            <Table
+              columns={accountsColumns}
+              dataSource={data}
+              pagination={true}
+              className="table"
+            />
           </div>
         </section>
       </Container>
