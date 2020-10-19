@@ -6,30 +6,56 @@
   background-color: #fff;
   border-radius: 10px;
   .chart-info {
-    width: 50%;
+    width: 100%;
     padding: 10px;
-    .chart-value {
-      display: flex;
-      div {
-        width: 800px;
-        display: inline;
-      }
-    }
+    justify-content: flex-start;
     h1 {
       font-size: 16px;
       color: black;
       font-weight: 700;
       padding-bottom: 10px;
     }
-    h5 {
-      font-size: 16px;
-      color: #888e98;
-      font-weight: 500;
-    }
-    p {
-      color: #37daaa;
-      font-weight: 700;
-      font-size: 16px;
+    .chart-value {
+      position: relative;
+      height: auto;
+      zoom: 1;
+      justify-content: flex-start;
+      box-sizing: border-box;
+      width: 100%;
+      display: flex;
+      h5 {
+        font-size: 16px;
+        color: #888e98;
+        font-weight: 500;
+      }
+      p {
+        color: #37daaa;
+        font-weight: 700;
+        font-size: 16px;
+      }
+      .beginning {
+        display: block;
+        box-sizing: border-box;
+        width: 33.33333333%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      .Ending {
+        display: block;
+        box-sizing: border-box;
+        width: 33.33333333%;
+        padding-left: 56px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      .Overall {
+        display: block;
+        box-sizing: border-box;
+        width: 33.33333333%;
+        padding-left: 80px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
     }
   }
   .main-chart {

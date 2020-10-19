@@ -1,7 +1,6 @@
 import React from "react";
 import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
-import "./TotalGraph.scss";
 import { data } from "../../../assets/dummyData/dummy";
 
 const options = {
@@ -11,7 +10,7 @@ const options = {
   series: [
     {
       data: data,
-      type: "areaspline",
+      type: "column",
       threshold: null,
       tooltip: {
         valueDecimals: 2,
@@ -32,22 +31,22 @@ const options = {
   ],
 };
 
-const TotalGraph = () => (
-  <div className="total-chart">
+const AAclassGraph = () => (
+  <div className="return-chart">
     <div className="chart-info">
-      <h1>Total Managed Assets</h1>
+      <h1>Total Return</h1>
       <div className="chart-value">
-        <div className="beginning">
-          <h5>Beginning</h5>
-          <p>44.28k</p>
+        <div className="lastdays">
+          <h5>Last Seven Days</h5>
+          <p>-2.03%</p>
         </div>
-        <div className="Ending">
-          <h5>Ending</h5>
-          <p>53.71k</p>
+        <div className="lastmonth">
+          <h5>Last Month</h5>
+          <p>0.27%</p>
         </div>
-        <div className="Overall">
+        <div className="overall">
           <h5>Overall</h5>
-          <p>13.28%</p>
+          <p>15.28%</p>
         </div>
       </div>
     </div>
@@ -60,4 +59,4 @@ const TotalGraph = () => (
   </div>
 );
 
-export default TotalGraph;
+export default AAclassGraph;
