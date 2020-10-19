@@ -13,10 +13,9 @@ const { Option } = Select;
 
 const dateFormat = "YYYY/MM/DD";
 
-const data = [
-  {
-  },
-];
+// const customFormat = value => {
+//   return `custom format: ${value.format(dateFormat)}`;
+// };
 
 const accountsColumns = [
   {
@@ -76,13 +75,13 @@ const Activity = () => {
           <div className="filter-bar">
             <div className="account-field">
               <h4> Account:</h4>
-              <Select style={{ width: 270 }} allowClear>
+              <Select style={{ width: 200 }} allowClear>
                 <Option value="DU1987191">DU1987191</Option>
               </Select>
             </div>
             <div className="type-field">
               <h4> Type:</h4>
-              <Select style={{ width: 270 }} allowClear>
+              <Select style={{ width: 200 }} allowClear>
                 <Option value="Deposit">Deposit</Option>
                 <Option value="Withdrawal">Withdrawal</Option>
                 <Option value="Dividend">Dividend</Option>
@@ -96,9 +95,9 @@ const Activity = () => {
               <h4>Select Start Date:</h4>
               <Space direction="vertical" size={12}>
                 <DatePicker
-                  defaultValue={moment("2020/01/01", dateFormat)}
+                  defaultValue={moment("2001/01/01", dateFormat)}
                   format={dateFormat}
-                  style={{ width: 270 }}
+                  style={{ width: 200 }}
                 />
               </Space>
             </div>
@@ -106,9 +105,9 @@ const Activity = () => {
               <h4>Select End Date:</h4>
               <Space direction="vertical" size={12}>
                 <DatePicker
-                  defaultValue={moment("2020/12/30", dateFormat)}
+                  defaultValue={moment("2001/01/01", dateFormat)}
                   format={dateFormat}
-                  style={{ width: 280 }}
+                  style={{ width: 200 }}
                 />
               </Space>
             </div>
@@ -116,7 +115,6 @@ const Activity = () => {
           <div className="activity-table">
             <Table
               columns={accountsColumns}
-              dataSource={data}
               pagination={true}
               className="table"
             />

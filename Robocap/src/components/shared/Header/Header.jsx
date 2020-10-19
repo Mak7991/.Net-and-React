@@ -37,7 +37,7 @@ class Header extends Component {
         <Container>
           <Navbar collapseOnSelect expand="lg" className="header">
             <Navbar.Brand className="nav-logo">
-              <Link to="/GoalPanel">
+              <Link to="/ClientPanel">
                 <Image className="logo" src={require("assets/images/logo.png")} draggable={false} />
               </Link>
             </Navbar.Brand>

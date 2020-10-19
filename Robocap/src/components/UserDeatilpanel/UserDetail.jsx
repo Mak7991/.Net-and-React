@@ -26,7 +26,7 @@ const UserDeatail = () => {
           </div>
         </div>
         <div className="assets-detail">
-            
+
         </div>
       </div>
     </div>
