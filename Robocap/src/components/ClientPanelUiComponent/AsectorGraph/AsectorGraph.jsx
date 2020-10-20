@@ -2,6 +2,7 @@ import React from "react";
 import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
 import { data } from "../../../assets/dummyData/dummy";
+import './AsectorGraph.scss';
 
 const options = {
   rangeSelector: {
@@ -32,23 +33,9 @@ const options = {
 };
 
 const AsectorGraph = () => (
-  <div className="return-chart">
+  <div className="Asector-chart">
     <div className="chart-info">
-      <h1>Total Return</h1>
-      <div className="chart-value">
-        <div className="lastdays">
-          <h5>Last Seven Days</h5>
-          <p>-2.03%</p>
-        </div>
-        <div className="lastmonth">
-          <h5>Last Month</h5>
-          <p>0.27%</p>
-        </div>
-        <div className="overall">
-          <h5>Overall</h5>
-          <p>15.28%</p>
-        </div>
-      </div>
+      <h1>Allocation by Sector</h1>
     </div>
     <HighchartsReact
       className="main-chart"

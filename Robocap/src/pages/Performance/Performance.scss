@@ -170,11 +170,23 @@
       }
     }
     .main-graph-div {
-      .total-assets-graph{
-        margin-bottom: 20px;
+      .total-assets-graph {
+        margin-bottom: 10px;
       }
-      .total-return-grapgh{
-        margin-bottom: 20px; 
+      .total-return-grapgh {
+        margin-bottom: 10px;
+      }
+      .performance-by-assets-class {
+        margin-bottom: 10px;
+      }
+      .performance-by-sector {
+        margin-bottom: 10px;
+      }
+      .allocation-by-asset-class {
+        margin-bottom: 10px;
+      }
+      .allocation-by-sector {
+        margin-bottom: 10px;
       }
     }
   }
