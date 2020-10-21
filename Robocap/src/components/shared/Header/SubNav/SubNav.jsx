@@ -19,7 +19,7 @@ const SubNav = () => {
         <Link to="/managetransfer">Manage Transfer</Link>
       </Menu.Item>
       <Menu.Item key="">
-        <Link to="/documents">Documents</Link>
+        <Link to="/documents/reports">Documents</Link>
       </Menu.Item>
       <Menu.Item key="">
         <Link to="/settings">Setting</Link>

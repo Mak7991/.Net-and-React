@@ -8,5 +8,5 @@ import Documents from "pages/Documents/Documents"
 import ManageTransfer from "pages/ManageTransfer/ManageTransfer"
 
 export{
-    Login, ClientPanel, Performance, NotFound, Activity, Settings, Documents, ManageTransfer
+    Login, ClientPanel, Performance, NotFound, Activity, Settings, Documents, ManageTransfer, 
 }
