@@ -3,7 +3,7 @@ import Header from "components/shared/Header/Header";
 
 const Settings = () => {
   return (
-    <div>
+    <div  className="settings-page">
       <Header />
     </div>
   );
