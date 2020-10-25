@@ -1,38 +1,39 @@
 import React from "react";
 import "./OtherDocuments.scss";
-
 import { Table } from "antd";
+import SampleReport from "assets/dummyData/DummyFiles/sample_report.pdf";
+import iframe from "react";
 
 let n = new Date();
 let y = n.getFullYear();
 let m = n.getMonth() + 1;
 let d = n.getDate();
 
-var t = new Date().toLocaleTimeString(); // for now
+var t = new Date().toLocaleTimeString(); // for current date and time
 
 const data = [
   {
     key: "1",
     date: "",
-    render:()=>( <iframe src={require("../../../assets/dummyData/DummyFiles/sample_report.pdf")} />),
+    filename: "",
     description: "sample annual reporting file.",
   },
   {
     key: "2",
     Date: "",
-    filename: "$53,706.67",
+    filename: "",
     description: "IRA Traditional Agreement.",
   },
   {
     key: "3",
     Date: "",
-    filename: "$53,706.67",
+    filename: "",
     description: "	W-9 Tax Form.",
   },
   {
     key: "4",
     Date: "",
-    filename: "$53,706.67",
+    filename: "",
     description: "W-9",
   },
 ];
@@ -56,7 +57,11 @@ const documentsColumn = [
     title: "File Name",
     dataIndex: "filename",
     key: "filename",
-  render: () => <a>sample report</a>,
+    render: () => (
+      <div className="modelContent">
+        <iframe src={SampleReport} style={{width:"600px", height:"500px"}} frameborder={0}></iframe>
+      </div>
+    ),
   },
 
   {
