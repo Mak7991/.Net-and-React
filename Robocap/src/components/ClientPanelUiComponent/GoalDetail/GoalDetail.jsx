@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
 // libraries
-import { Collapse, Table, Space } from "antd";
+import { Collapse, Table, Space, Empty, ConfigProvider } from "antd";
 import { FundOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-// import { Pie } from '@antv/g2plot';
+import NoData from 'assets/images/mannageAssets.png'
 // scss
 import "./GoalDetail.scss";
 
@@ -14,40 +14,6 @@ const { Panel } = Collapse;
 function callback(key) {
   console.log(key);
 }
-
-// const data = [
-//   { type: 'test1', value: 27 },
-//   { type: 'test2', value: 25 },
-//   { type: 'test3', value: 18 },
-//   { type: 'test4', value: 15 },
-//   { type: 'test5', value: 10 },
-//   { type: 'test6', value: 5 },
-// ];
-
-// const piePlot ={
-//   statistic: {
-//     title: false,
-//     content: {
-//       formatter: () => 'AntV\nG2Plot',
-//     },
-//   },
-//   appendPadding: 10,
-//   data: data,
-//   angleField: 'value',
-//   colorField: 'type',
-//   radius: 0.8,
-//   innerRadius: 0.6,
-//   label: {
-//     type: 'inner',
-//     offset: '-0.5',
-//     content: '{percentage}',
-//     style: {
-//       fill: '#fff',
-//       fontSize: 14,
-//       textAlign: 'center',
-//     },
-//   },
-// }
 
 const data = [
   {
@@ -123,9 +89,22 @@ const assetsColumns = [
   },
 ];
 
+const customizeRenderEmpty = () => (
+  <div style={{ textAlign: "center" }}>
+    <Empty image={NoData} />
+    <div className="link-account">
+      <p>Link New Held-away Account</p>
+      <Link className="link-acc-btn" to="/HeldAwayAccount">
+        Link Held-away Acct
+      </Link>
+    </div>
+  </div>
+);
+
 class GoalDetail extends Component {
   state = {
     expandIconPosition: "right",
+    customize: true,
   };
 
   onPositionChange = (expandIconPosition) => {
@@ -134,6 +113,8 @@ class GoalDetail extends Component {
 
   render() {
     const { expandIconPosition } = this.state;
+    const { customize } = this.state;
+
     return (
       <div className="user-goal">
         <Collapse
@@ -174,13 +155,14 @@ class GoalDetail extends Component {
           <div>
             <div className="mannage-assets">
               <h1>Held-away Accounts</h1>
-              <Table columns={assetsColumns} pagination={false} loading={false} className="table" />
-              <div className="link-account">
-                <p>Link New Held-away Account</p>
-                <Link className="link-acc-btn" to="/HeldAwayAccount">
-                  Link Held-away Acct
-                </Link>
-              </div>
+              <ConfigProvider renderEmpty={customize && customizeRenderEmpty}>
+                <Table
+                  columns={assetsColumns}
+                  pagination={false}
+                  loading={false}
+                  className="table"
+                />
+              </ConfigProvider>
             </div>
           </div>
         </Collapse>
@@ -191,24 +173,3 @@ class GoalDetail extends Component {
 }
 
 export default GoalDetail;
-
-// const piePlot = new Pie('container', {
-//   appendPadding: 10,
-//   data,
-//   angleField: 'value',
-//   colorField: 'type',
-//   radius: 0.8,
-//   innerRadius: 0.6,
-//   label: {
-//     type: 'inner',
-//     offset: '-0.5',
-//     content: '{percentage}',
-//     style: {
-//       fill: '#fff',
-//       fontSize: 14,
-//       textAlign: 'center',
-//     },
-//   },
-// });
-
-// piePlot.render();

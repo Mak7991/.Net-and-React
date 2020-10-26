@@ -2,7 +2,6 @@ import React from "react";
 import "./OtherDocuments.scss";
 import { Table } from "antd";
 import SampleReport from "assets/dummyData/DummyFiles/sample_report.pdf";
-import iframe from "react";
 
 let n = new Date();
 let y = n.getFullYear();
@@ -11,11 +10,13 @@ let d = n.getDate();
 
 var t = new Date().toLocaleTimeString(); // for current date and time
 
+
+
 const data = [
   {
     key: "1",
     date: "",
-    filename: "",
+    filename: {},
     description: "sample annual reporting file.",
   },
   {
@@ -43,10 +44,6 @@ const documentsColumn = [
     title: "Date",
     dataIndex: "date",
     key: "date",
-    // n: new Date(),
-    // y: n.getFullYear(),
-    // m: n.getMonth() + 1,
-    // d: n.getDate(),
     render: () => (
       <p>
         {t} {m + "/" + d + "/" + y}
@@ -59,7 +56,7 @@ const documentsColumn = [
     key: "filename",
     render: () => (
       <div className="modelContent">
-        <iframe src={SampleReport} style={{width:"600px", height:"500px"}} frameborder={0}></iframe>
+        <iframe title="Reports" src={SampleReport} style={{width:"600px", height:"500px"}} frameborder={0}>Hello</iframe>
       </div>
     ),
   },
