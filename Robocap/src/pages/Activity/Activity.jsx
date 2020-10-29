@@ -113,11 +113,7 @@ const Activity = () => {
             </div>
           </div>
           <div className="activity-table">
-            <Table
-              columns={accountsColumns}
-              pagination={true}
-              className="table"
-            />
+            <Table columns={accountsColumns} pagination={true} className="table" />
           </div>
         </section>
       </Container>

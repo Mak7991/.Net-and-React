@@ -2,10 +2,11 @@ import React from "react";
 // component
 import Header from "components/shared/Header/Header";
 // library
-import { Radio, Modal, Button } from "antd";
+import { Modal } from "antd";
 import { Container } from "react-bootstrap";
+import "react-bootstrap";
 // scss
-// import "./ManageTransfer.scss";
+import "./Settings.scss";
 
 class ManageTransfer extends React.Component {
   state = { visible: false };
@@ -35,25 +36,20 @@ class ManageTransfer extends React.Component {
       <div className="managa-transfer-page">
         <Header />
         <Container>
-          <div className="mt-main-div">
-            <div className="mt-inner-div">
-              <h1>Deposit Amount</h1>
-              <hr />
-            </div>
-            <div className="account-information">
-              <h4>Select an account</h4>
-              <span>
-                <Radio></Radio>
-              </span>
-              <div className="select-account">
-                <h5>DU1987191</h5>
-                <br />
+          <div
+            className="ant-col-xs-24 ant-col-md-8"
+            style={{ paddingLeft: "8px", paddingRight: "8px" }}>
+            <div className="link-box-root">
+              <h4 className="link-title">Password</h4>
+              <div className="link-text">Change your login password.</div>
+              <div className="link-btn-wrap">
+                <button type="button" class="ant-btn ant-btn-primary" onClick={this.showModal}>
+                  <span>Change</span>
+                </button>
                 <div>
-                  <Button type="primary" onClick={this.showModal}>
-                    Open Modal
-                  </Button>
                   <Modal
                     title="Accounts Detail"
+                    style={{ textAlign: "center" }}
                     visible={this.state.visible}
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}>

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./OtherDocuments.scss";
-import { Table, Modal, Button } from "antd";
+import { Table, Modal } from "antd";
 import SampleReport from "assets/dummyData/DummyFiles/sample_report.pdf";
 
 let n = new Date();
@@ -77,7 +77,7 @@ class OtherDocuments extends Component {
             {text}
           </a>
           <Modal
-            style={{ top: 20}}
+            style={{ top: 20 }}
             width={1200}
             height={1600}
             visible={this.state.Visible}
