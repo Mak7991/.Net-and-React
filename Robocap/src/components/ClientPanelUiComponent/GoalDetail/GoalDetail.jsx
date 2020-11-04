@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 
+// component
+import PieGraph from "components/ClientPanelUiComponent/PieGraph/PieGraph"
 // libraries
 import { Collapse, Table, Space, Empty, ConfigProvider } from "antd";
 import { FundOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import NoData from 'assets/images/mannageAssets.png'
+import NoData from "assets/images/mannageAssets.png";
 // scss
 import "./GoalDetail.scss";
 
@@ -142,7 +144,9 @@ class GoalDetail extends Component {
               </div>
               <div className="goal-allocation">
                 <h1>Asset Allocation</h1>
-                <div></div>
+                <div>
+                  <PieGraph/>
+                </div>
               </div>
             </div>
           </Panel>

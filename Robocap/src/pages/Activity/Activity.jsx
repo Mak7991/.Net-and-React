@@ -75,13 +75,13 @@ const Activity = () => {
           <div className="filter-bar">
             <div className="account-field">
               <h4> Account:</h4>
-              <Select style={{ width: 200 }} allowClear>
+              <Select placeholder="Select Account" allowClear >
                 <Option value="DU1987191">DU1987191</Option>
               </Select>
             </div>
             <div className="type-field">
               <h4> Type:</h4>
-              <Select style={{ width: 200 }} allowClear>
+              <Select placeholder="Select Type" allowClear>
                 <Option value="Deposit">Deposit</Option>
                 <Option value="Withdrawal">Withdrawal</Option>
                 <Option value="Dividend">Dividend</Option>
@@ -93,22 +93,14 @@ const Activity = () => {
             </div>
             <div className="start-date">
               <h4>Select Start Date:</h4>
-              <Space direction="vertical" size={12}>
-                <DatePicker
-                  defaultValue={moment("2001/01/01", dateFormat)}
-                  format={dateFormat}
-                  style={{ width: 200 }}
-                />
+              <Space direction="vertical">
+                <DatePicker defaultValue={moment("2001/01/01", dateFormat)} format={dateFormat} />
               </Space>
             </div>
             <div className="end-date">
               <h4>Select End Date:</h4>
-              <Space direction="vertical" size={12}>
-                <DatePicker
-                  defaultValue={moment("2001/01/01", dateFormat)}
-                  format={dateFormat}
-                  style={{ width: 200 }}
-                />
+              <Space direction="vertical">
+                <DatePicker defaultValue={moment("2001/01/01", dateFormat)} format={dateFormat} />
               </Space>
             </div>
           </div>

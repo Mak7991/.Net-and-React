@@ -19,9 +19,12 @@
         display: block;
         box-sizing: border-box;
         float: left;
-        flex: 0 0 20%;
+        width: 25%;
         position: relative;
         min-height: 1px;
+        .ant-select {
+          width: 100%;
+        }
       }
       .type-field {
         padding-left: 8px;
@@ -29,8 +32,11 @@
         display: block;
         box-sizing: border-box;
         float: left;
-        flex: 0 0 20%;
+        width: 25%;
         min-height: 1px;
+        .ant-select {
+          width: 100%;
+        }
       }
       .start-date {
         padding-left: 8px;
@@ -38,9 +44,11 @@
         display: block;
         box-sizing: border-box;
         float: left;
-        flex: 0 0 20%;
-        position: relative;
+        width: 25%;
         min-height: 1px;
+        .ant-select {
+          width: 100%;
+        }
       }
       .end-date {
         padding-left: 8px;
@@ -48,14 +56,36 @@
         display: block;
         box-sizing: border-box;
         float: left;
-        flex: 0 0 20%;
-        position: relative;
+        width: 25%;
         min-height: 1px;
+        .ant-select {
+          width: 100%;
+        }
       }
     }
     .activity-table {
       background-color: #fff;
       flex: 0 0 100%;
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 920px) {
+  .activity-page {
+    height: 100%;
+    .account-activity {
+      margin-top: 20px;
+      padding: 20px;
+      flex: 0 0 100%;
+      background-color: #fff;
+      .filter-bar {
+        display: block;
+        flex: 0 0 100%;
+        padding-bottom: 40px;
+        h4 {
+          padding-bottom: 10px;
+        }
+      }
     }
   }
 }

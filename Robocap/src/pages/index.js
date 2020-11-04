@@ -1,5 +1,5 @@
 import Login from "pages/Login/Login";
-import ClientPanel from "pages/ClientPanelHome/GoalPanel"
+import ClientPanel from "pages/ClientPanelHome/ClientPanel"
 import Performance from "pages/Performance/Performance"
 import NotFound from "pages/NotFound/NotFound"
 import Activity from "pages/Activity/Activity"

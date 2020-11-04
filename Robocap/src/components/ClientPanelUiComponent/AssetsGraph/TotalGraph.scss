@@ -61,4 +61,11 @@
   .main-chart {
     width: 50%;
   }
+  .highcharts-container {
+    .highcharts-root {
+      .highcharts-credits {
+        display: none;
+      }
+    }
+  }
 }

@@ -8,7 +8,7 @@ const options = {
     type: "column",
   },
   credits: {
-    enabled: false,
+    enabled: true,
   },
   title: {
     text: ''
