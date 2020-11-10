@@ -10,7 +10,7 @@ const options = {
     plotShadow: false,
   },
   title: {
-    text: "ETF",
+    text: "ETF 100.00%",
     align: "center",
     verticalAlign: "middle",
     y: 60,

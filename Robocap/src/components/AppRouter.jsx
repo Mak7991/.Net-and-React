@@ -19,7 +19,7 @@ const AppRouter = () => (
     <Route path="/clientPanel" component={ClientPanel} />
     <Route path="/performance" component={Performance} />
     <Route path="/activity" component={Activity} />
-    <Route path="/managetransfer" component={ManageTransfer} />
+    <Route path="/transfer" component={ManageTransfer} />
     <Route path="/documents" component={Documents} />
     <Route path="/settings" component={Settings} />
     <Route path="*" component={NotFound} />

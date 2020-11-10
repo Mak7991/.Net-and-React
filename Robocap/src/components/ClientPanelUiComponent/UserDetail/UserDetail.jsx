@@ -1,7 +1,7 @@
 import React from "react";
 // library
 import { Link } from "react-router-dom";
-import { MobileOutlined, MailOutlined, HomeOutlined, PlusOutlined } from "@ant-design/icons";
+import { MobileOutlined, MailOutlined, HomeOutlined } from "@ant-design/icons";
 import { Col, Row } from "antd";
 // scss
 import "./UserDetail.scss";
@@ -31,14 +31,14 @@ const UserDetail = () => {
         </div>
         <div className="assets-detail">
           <div className="total-values">
-            <div className="new-account">
+            {/* <div className="new-account">
               <Link to="/newaccount" className="new-account-btn">
                 <i className="btn-icon">
                   <PlusOutlined style={{ color: "#fff", width: "20px" }} />
                 </i>
                 <span>Open a new account</span>
               </Link>
-            </div>
+            </div> */}
             <div className="user-assets-detail">
               <Row>
                 <img
@@ -67,7 +67,11 @@ const UserDetail = () => {
             </div>
             <div className="user-assets-detail">
               <Row>
-                <img src={require("../../../assets/images/link.png")} alt="wallet" className="icon" />
+                <img
+                  src={require("../../../assets/images/link.png")}
+                  alt="wallet"
+                  className="icon"
+                />
                 <Col>
                   <h5>
                     Held-away Net Worth <Link to="/Accounts">(2 Accounts)</Link>

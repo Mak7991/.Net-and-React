@@ -1,0 +1,60 @@
+.deposit-account{
+    margin-left: 244px;
+    .select-account {
+      background: #fff;
+      padding: 10px 10px;
+      border-radius: 4px;
+      .per-title {
+        font-size: 18px;
+        padding: 10px 10px;
+        color: #1e1e1e;
+        font-weight: 700;
+      }
+      .per-disc {
+        font-size: 15px;
+        font-weight: 500;
+        color: #888e98;
+        cursor: pointer;
+      }
+    }
+  }
+  .mt-main-div {
+    background-color: #fff;
+    margin-top: 10px;
+    border-radius: 10px;
+    height: 270px;
+    h1 {
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .mt-inner-div {
+      padding: 10px 10px;
+    }
+    .account-information {
+      padding: 10px;
+      margin: 5px;
+      background-color: #fff;
+      border: 1px solid #2196f3;
+      border-radius: 5px;
+      h4 {
+        font-size: 18px;
+        font-weight: 600;
+      }
+      span {
+        float: right;
+      }
+      button {
+        float: right;
+      }
+      .select-account {
+        background-color: #fff;
+        display: block;
+        height: 130px;
+        h5 {
+          font-size: 15px;
+          color: #888e98;
+          font-weight: 500;
+        }
+      }
+    }
+  }

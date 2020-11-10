@@ -16,7 +16,7 @@ const SubNav = () => {
         <Link to="/activity">Activity</Link>
       </Menu.Item>
       <Menu.Item key="">
-        <Link to="/managetransfer">Manage Transfer</Link>
+        <Link to="/transfer/deposit">Manage Transfer</Link>
       </Menu.Item>
       <Menu.Item key="">
         <Link to="/documents/reports">Documents</Link>

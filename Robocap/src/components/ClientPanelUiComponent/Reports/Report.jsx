@@ -1,7 +1,10 @@
-import React, { Component } from "react";
-import "./Report.scss";
-import { Table, ConfigProvider, Empty } from "antd";
+import React from "react";
+// component
 import NoData from 'assets/images/mannageAssets.png'
+// library
+import { Table, ConfigProvider, Empty } from "antd";
+// scss
+import "./Report.scss";
 
 const reportsColumn = [
   {
@@ -32,7 +35,7 @@ const customizeRenderEmpty = () => (
   </div>
 );
 
-class Report extends Component {
+class Report extends React.Component {
   state = {
     customize: true,
   };

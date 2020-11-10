@@ -2,43 +2,103 @@
   background-color: #f6f8fc;
   height: 100vh;
   width: 100%;
-  .mt-main-div{
-      background-color: #fff;
-      margin-top: 10px;
-      border-radius: 10px;
-      height: 250px;
-      h1{
-          font-size: 18px;
-          font-weight: 600;
-      }
-      .mt-inner-div{
-          padding: 10px 10px;
-      }
-      .account-information{
-          padding: 10px;
-          margin: 5px;
+  .performance-inner-div {
+    padding: 0 16px;
+    margin: 0 auto;
+    display: block;
+    .performance-nav-pc {
+      position: absolute;
+      .performance-sidebar-root {
+        margin-top: 10px;
+        min-width: 220px;
+        display: block;
+        position: fixed;
+        overflow: auto;
+        top: 65px;
+        bottom: 0;
+        background: #fff;
+        z-index: 2;
+        .sidebar-box {
+          margin-top: 17px;
+          width: 100%;
           background-color: #fff;
-          border: 1px solid #2196f3;
-          border-radius: 5px;
-          h4{
-              font-size: 18px;
-              font-weight: 600;
-          }
-          span{
-              float: right;
-          }
-          button{
-              float: right;
-          }
-          .select-account{
-              background-color: #fff;
-              display: block;
-              height: 80px;
-              h5{
-                  font-size: 16px;
-                  font-weight: 500;
+          padding: 24px 0;
+          margin: 24px 0;
+          .sector-box {
+            .per-title {
+              padding: 0 24px 24px;
+              font-size: 16px;
+              color: #1e1e1e;
+              font-weight: 700;
+            }
+            .sector-item-box {
+              white-space: nowrap;
+              a {
+                color: #888e98;
               }
+              a:active {
+                background-color: #2196f3;
+                color: #fff;
+              }
+              span:active {
+                background-color: #2196f3;
+                color: #fff;
+                a {
+                  color: #fff;
+                }
+              }
+              span {
+                display: block;
+                padding: 24px;
+                font-size: 15px;
+                font-weight: 500;
+                color: #888e98;
+                cursor: pointer;
+              }
+            }
           }
+        }
       }
+    }
+  }
+  .mt-main-div {
+    background-color: #fff;
+    margin-top: 10px;
+    border-radius: 10px;
+    height: 270px;
+    h1 {
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .mt-inner-div {
+      padding: 10px 10px;
+    }
+    .account-information {
+      padding: 10px;
+      margin: 5px;
+      background-color: #fff;
+      border: 1px solid #2196f3;
+      border-radius: 5px;
+      h4 {
+        font-size: 18px;
+        font-weight: 600;
+      }
+      span {
+        float: right;
+      }
+      button {
+        float: right;
+      }
+      .select-account {
+        background-color: #fff;
+        display: block;
+        height: 130px;
+        h5 {
+          font-size: 15px;
+          color: #888e98;
+          font-weight: 500;
+        }
+      }
+    }
   }
 }

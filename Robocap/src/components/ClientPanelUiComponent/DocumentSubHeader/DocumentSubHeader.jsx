@@ -18,10 +18,10 @@ const DocumentSubHeader = () => {
                   Report
                 </NavLink>
               </Menu.Item>
-              <Menu.Item key="2">
+              {/* <Menu.Item key="2">
                 <NavLink to="/documents/accountopening">Account Openning</NavLink>
-              </Menu.Item>
-              <Menu.Item key="3">
+              </Menu.Item> */}
+              <Menu.Item key="2">
                 <NavLink to="/documents/otherdocuments">Other Documents</NavLink>
               </Menu.Item>
             </Menu>

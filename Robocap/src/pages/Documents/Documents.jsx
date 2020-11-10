@@ -4,7 +4,7 @@ import React from "react";
 import Header from "components/shared/Header/Header";
 import DocumentSubHeader from "components/ClientPanelUiComponent/DocumentSubHeader/DocumentSubHeader";
 import Report from "components/ClientPanelUiComponent/Reports/Report";
-import AccountOpening from "components/ClientPanelUiComponent/AccountOpening/AccountOpening";
+// import AccountOpening from "components/ClientPanelUiComponent/AccountOpening/AccountOpening";
 import OtherDocuments from "components/ClientPanelUiComponent/OtherDocuments/OtherDocuments"
 
 // library
@@ -21,7 +21,7 @@ const Documents = () => {
       <Container>
         <Switch>
           <Route path="/documents/reports" component={Report} />
-          <Route path="/documents/accountopening" component={AccountOpening} />
+          {/* <Route path="/documents/accountopening" component={AccountOpening} /> */}
           <Route path="/documents/otherdocuments" component={OtherDocuments} />
         </Switch>
       </Container>

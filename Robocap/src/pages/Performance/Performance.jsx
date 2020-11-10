@@ -9,7 +9,6 @@ import PAclassGraph from "components/ClientPanelUiComponent/PAclassGraph/PAclass
 import PsectorGraph from "components/ClientPanelUiComponent/PsectorGraph/PsectorGraph";
 import AAclassGraph from "components/ClientPanelUiComponent/AAclassGraph/AAclassGraph";
 import AsectorGraph from "components/ClientPanelUiComponent/AsectorGraph/AsectorGraph";
-import AregionGraph from "components/ClientPanelUiComponent/AregionGraph/AregionGraph";
 
 const Performance = () => {
   return (
@@ -40,9 +39,6 @@ const Performance = () => {
                     </span>
                     <span className="">
                       <a href="#AllocationBySector">Allocation by Sector</a>{" "}
-                    </span>
-                    <span className="">
-                      <a href="#AllocationByRegion">Allocation by Region</a>{" "}
                     </span>
                   </div>
                 </div>
@@ -98,9 +94,6 @@ const Performance = () => {
                 </div>
                 <div id="AllocationBySector" className="allocation-by-sector">
                   <AsectorGraph/>
-                </div>
-                <div id="AllocationByRegion" className="allocation-by-region">
-                  <AregionGraph/>
                 </div>
               </div>
             </div>

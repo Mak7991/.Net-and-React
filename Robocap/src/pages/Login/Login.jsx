@@ -4,20 +4,20 @@ import { Redirect } from "react-router-dom";
 import "antd/dist/antd.css";
 import "./Login.scss";
 
-const values = [
-  {
-    emailAddress: "maaz123@gmail.com",
-    password: "admin123",
-  },
-];
+// const values = [
+//   {
+//     emailAddress: "maaz123@gmail.com",
+//     password: "admin123",
+//   },
+// ];
 
 const Login = () => {
-  const onFinish = () => {
-    // debugger;
-    if (("Received values of form: ", values.emailAddress, values.password)) {
-      return <Redirect to="/ClientPanel" />;
-    }
-  };
+  // const onFinish = () => {
+  //   // debugger;
+  //   if (("Received values of form: ", values.emailAddress, values.password)) {
+  //     return <Redirect to="/ClientPanel" />;
+  //   }
+  // };
   return (
     <div className="login">
       <div className="login-body">
@@ -35,7 +35,7 @@ const Login = () => {
             name="normal_login"
             layout="vertical"
             className="form"
-            onFinish={onFinish}
+            // onFinish={onFinish}
             initialValues={{
               remember: true,
             }}>

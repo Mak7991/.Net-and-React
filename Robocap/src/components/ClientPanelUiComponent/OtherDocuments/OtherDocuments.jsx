@@ -73,7 +73,7 @@ class OtherDocuments extends Component {
       key: "filename",
       render: (text) => (
         <>
-          <a type="primary" onClick={() => this.setVisible(true)}>
+          <a type="primary" href="" onClick={() => this.setVisible(true)}>
             {text}
           </a>
           <Modal

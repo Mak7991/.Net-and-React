@@ -2,9 +2,9 @@ import React from "react";
 
 // component
 import Header from "components/shared/Header/Header";
+import Container from "components/shared/Container/Container";
 // library
 import { Select, DatePicker, Space, Table } from "antd";
-import { Container } from "react-bootstrap";
 import moment from "moment";
 // scss
 import "./Activity.scss";
@@ -75,8 +75,8 @@ const Activity = () => {
           <div className="filter-bar">
             <div className="account-field">
               <h4> Account:</h4>
-              <Select placeholder="Select Account" allowClear >
-                <Option value="DU1987191">DU1987191</Option>
+              <Select placeholder="Select Account" allowClear>
+                <Option value="">DU1987191</Option>
               </Select>
             </div>
             <div className="type-field">
