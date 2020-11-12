@@ -6,17 +6,100 @@ import "./PAclassGraph.scss";
 const options = {
   chart: {
     type: "column",
+    threshold: null,
+    tooltip: {
+      valueDecimals: 2,
+    },
   },
+  // rangeSelector: {
+  //   selected: 1,
+  // },
   credits: {
     enabled: true,
   },
   title: {
-    text: ''
+    text: "",
   },
   series: [
     {
       name: "ETF",
       data: [
+        2,
+        2,
+        1,
+        3,
+        4,
+        -2,
+        -3,
+        -2,
+        -3,
+        4,
+        2,
+        1,
+        3,
+        4,
+        4,
+        -2,
+        -3,
+        2,
+        1,
+        5,
+        3,
+        4,
+        7,
+        2,
+        2,
+        -2,
+        -3,
+        -2,
+        -3,
+        -2,
+        -3,
+        2,
+        1,
+        3,
+        4,
+        4,
+        -2,
+        5,
+        2,
+        2,
+        1,
+        3,
+        4,
+        -2,
+        -3,
+        -2,
+        -3,
+        4,
+        2,
+        1,
+        3,
+        4,
+        4,
+        -2,
+        -3,
+        2,
+        1,
+        5,
+        3,
+        4,
+        7,
+        2,
+        2,
+        -2,
+        -3,
+        -2,
+        -3,
+        -2,
+        -3,
+        2,
+        1,
+        3,
+        4,
+        4,
+        -2,
+        5,
         2,
         2,
         1,
@@ -65,7 +148,12 @@ const PAclassGraph = () => (
     <div className="chart-info">
       <h1>Performance by Asset Class</h1>
     </div>
-    <HighchartsReact className="main-chart" highcharts={Highcharts} options={options} />
+    <HighchartsReact
+      className="main-chart"
+      highcharts={Highcharts}
+      constructorType={"stockChart"}
+      options={options}
+    />
   </div>
 );
 

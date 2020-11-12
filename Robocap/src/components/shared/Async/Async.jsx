@@ -15,7 +15,7 @@ const checkToRedirectToLogin = (error, onFailure) => {
   return onFailure(error);
 };
 
-const Async = ({ uiState, onSuccess, onFailure, onProgress, error }: Props) => {
+const Async = ({ uiState, onSuccess, onFailure, onProgress, error }, Props) => {
   return (
     <>
       {uiState === IN_PROGRESS && onProgress()}

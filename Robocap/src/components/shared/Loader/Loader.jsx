@@ -1,15 +1,18 @@
 import React from "react";
-import { Spin } from "antd";
-import { LoadingOutlined } from "@ant-design/icons";
+import { Spin, Space } from "antd";
+// import { LoadingOutlined } from "@ant-design/icons";
 import "./Loader.scss";
 
 const Loader = (props) => {
   return (
-    <Spin
-      size="large"
-      indicator={<LoadingOutlined style={{ fontSize: 30 }} spin />}
-      className="loader-center1"
-    />
+    // <Spin
+    //   size="large"
+    //   indicator={<LoadingOutlined style={{ fontSize: 30 }} spin />}
+    //   className="loader-center1"
+    // />
+    <Space size="middle">
+      <Spin className="loader-center1" />
+    </Space>
   );
 };
 

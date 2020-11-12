@@ -1,34 +1,60 @@
 import React from "react";
 import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
-import { data } from "../../../assets/dummyData/dummy";
-import './PsectorGraph.scss';
+// import { data } from "../../../assets/dummyData/dummy";
+import "./PsectorGraph.scss";
 
 const options = {
-  rangeSelector: {
-    selected: 1,
-  },
-  series: [
-    {
-      data: data,
-      type: "areaspline",
-      threshold: null,
+  chart: {
+    type: "column",
+    threshold: null,
       tooltip: {
         valueDecimals: 2,
       },
-      fillColor: {
-        linearGradient: {
-          x1: 0,
-          y1: 0,
-          x2: 0,
-          y2: 1,
-        },
-        stops: [
-          [0, Highcharts.getOptions().colors[0]],
-          [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get("rgba")],
-        ],
-      },
+  },
+  // rangeSelector: {
+  //   selected: 1,
+  // },
+  credits: {
+    enabled: true,
+  },
+  title: {
+    text: "",
+  },
+  
+  series: [
+    {
+      name: "Communication Services",
+      data: [2, 2, 1, 3, 4, -2, -3, -2, -3, 2, 2, 1, 3, 4, -2, -3, -2, -3, 2, 2, 1, 3, 4, -2, -3, -2, -3],
     },
+    {
+      name: "Health Care",
+      data: [2, 2, 1, 3, 4, -2, -3, -2, -3, 2, 2, 1, 3, 4, -2, -3, -2, -3, 2, 2, 1, 3, 4, -2, -3, -2, -3],
+    },
+    {
+      name: "Energy",
+      data: [2, 2, 1, 3, 4, -2, -3, -2, -3, 2, 2, 1, 3, 4, -2, -3, -2, -3, 2, 2, 1, 3, 4, -2, -3, -2, -3],
+    },
+    {
+      name: "Materials",
+      data: [2, 2, 1, 3, 4, -2, -3, -2, -3, 2, 2, 1, 3, 4, -2, -3, -2, -3, 2, 2, 1, 3, 4, -2, -3, -2, -3],
+    },
+    {
+      name: "Financials",
+      data: [2, 2, 1, 3, 4, -2, -3, -2, -3, 2, 2, 1, 3, 4, -2, -3, -2, -3, 2, 2, 1, 3, 4, -2, -3, -2, -3],
+    },
+    {
+      name: "Industrials",
+      data: [2, 2, 1, 3, 4, -2, -3, -2, -3, 2, 2, 1, 3, 4, -2, -3, -2, -3, 2, 2, 1, 3, 4, -2, -3, -2, -3]
+    },
+    {
+      name: "Consumer Discretionary",
+      data: [2, 2, 1, 3, 4, -2, -3, -2, -3, 2, 2, 1, 3, 4, -2, -3, -2, -3, 2, 2, 1, 3, 4, -2, -3, -2, -3]
+    },
+    {
+      name: "Information Technology",
+      data: [2, 2, 1, 3, 4, -2, -3, -2, -3, 2, 2, 1, 3, 4, -2, -3, -2, -3, 2, 2, 1, 3, 4, -2, -3, -2, -3]
+    }
   ],
 };
 

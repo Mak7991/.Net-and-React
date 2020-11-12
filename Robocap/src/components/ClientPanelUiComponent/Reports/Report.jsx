@@ -1,6 +1,7 @@
 import React from "react";
 // component
-import NoData from 'assets/images/mannageAssets.png'
+import NoData from "assets/images/mannageAssets.png";
+// import Async from "components/shared/Async/Async";
 // library
 import { Table, ConfigProvider, Empty } from "antd";
 // scss
@@ -42,6 +43,7 @@ class Report extends React.Component {
 
   render() {
     const { customize } = this.state;
+    // const { uiState, error} = this.state;
 
     return (
       <ConfigProvider renderEmpty={customize && customizeRenderEmpty}>
@@ -51,6 +53,29 @@ class Report extends React.Component {
           </div>
         </div>
       </ConfigProvider>
+
+      // <>
+      //   <Async
+      //     uiState={uiState}
+      //     error={error}
+      //     onSuccess={() => {
+      //       return (
+      //         <ConfigProvider renderEmpty={customize && customizeRenderEmpty}>
+      //           <div className="reports">
+      //             <div className="reports-inner-div">
+      //               <Table
+      //                 columns={reportsColumn}
+      //                 pagination={false}
+      //                 className="table"
+      //               />
+      //             </div>
+      //           </div>
+      //         </ConfigProvider>
+      //       );
+      //     }}
+      //   />
+      // </>
+      
     );
   }
 }
