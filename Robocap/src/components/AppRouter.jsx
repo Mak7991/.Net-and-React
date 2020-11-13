@@ -11,6 +11,8 @@ import {
   ManageTransfer,
   Documents,
   Settings,
+  ChangePassword,
+  RegisterForm,
 } from "pages";
 
 const AppRouter = () => (
@@ -22,6 +24,8 @@ const AppRouter = () => (
     <Route path="/transfer" component={ManageTransfer} />
     <Route path="/documents" component={Documents} />
     <Route path="/settings" component={Settings} />
+    <Route path="/auth/changePassword" component={ChangePassword} />
+    <Route path="/auth/registerform" component={RegisterForm} />
     <Route path="*" component={NotFound} />
   </Switch>
 );

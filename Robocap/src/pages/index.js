@@ -6,7 +6,9 @@ import Activity from "pages/Activity/Activity"
 import Settings from "pages/Settings/Settings";
 import Documents from "pages/Documents/Documents"
 import ManageTransfer from "pages/ManageTransfer/ManageTransfer"
+import ChangePassword from "pages/ChangePassword/ChangePassword"
+import RegisterForm from "pages/RegisterForm/RegisterForm"
 
 export{
-    Login, ClientPanel, Performance, NotFound, Activity, Settings, Documents, ManageTransfer, 
+    Login, ClientPanel, Performance, NotFound, Activity, Settings, Documents, ManageTransfer, ChangePassword, RegisterForm
 }

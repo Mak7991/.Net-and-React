@@ -32,18 +32,22 @@ class TransactionHistory extends React.Component {
           <div className="mt-main-div">
             <Tabs defaultActiveKey="1">
               <TabPane tab={<span>Pending</span>} key="1">
+
                 {/* pending transaction */}
                 <div style={{ textAlign: "center" }}>
                   <Empty image={NoData} className="pending-trans" />
                 </div>
                 {/* pending transaction */}
+
               </TabPane>
               <TabPane tab={<span>History</span>} key="2">
+                
                 {/* transaction history */}
                 <div style={{ textAlign: "center" }}>
                   <Empty image={NoData} className="pending-trans" />
                 </div>
                 {/* transaction history */}
+                
               </TabPane>
             </Tabs>
           </div>
