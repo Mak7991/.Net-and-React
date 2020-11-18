@@ -13,6 +13,7 @@ import {
   Settings,
   ChangePassword,
   RegisterForm,
+  Plan
 } from "pages";
 
 const AppRouter = () => (
@@ -26,6 +27,7 @@ const AppRouter = () => (
     <Route path="/settings" component={Settings} />
     <Route path="/auth/changePassword" component={ChangePassword} />
     <Route path="/auth/registerform" component={RegisterForm} />
+    <Route path="/plan" component={Plan}/>
     <Route path="*" component={NotFound} />
   </Switch>
 );

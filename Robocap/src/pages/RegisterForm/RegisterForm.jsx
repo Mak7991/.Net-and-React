@@ -31,6 +31,43 @@ const RegisterForm = () => {
   //   });
   // };
 
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  var raw = JSON.stringify({ EmailID: "maaz@catalyst.com", Password: "12345678" });
+
+  var requestOptions = {
+    method: "POST",
+    headers: myHeaders,
+    body: raw,
+    redirect: "follow",
+  };
+
+  fetch("http://10.2.0.201:8885/api/login", requestOptions)
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.log("error", error));
+
+  const data = [
+    {
+      question: "I plan to begin withdrawing money from my investments in",
+      options: ["Less than 3 years", "3–5 years", "11 years or more"],
+    },
+    {
+      question: "When I invest my money, I am",
+      options: [
+        "Most concerned about my investment losing value",
+        "Equally concerned about my investment losing or gaining value",
+        "Most concerned about my investment gaining value",
+      ],
+    },
+    {
+      question:
+        "Imagine that in the past three months, the overall stock market lost 35% of its value. An individual stock investment you own also lost 35% of its value. What would you do",
+      options: ["Sell all of my shares", "Sell some of my shares", "Buy more shares"],
+    },
+  ];
+
   return (
     <>
       <Header />
@@ -48,87 +85,37 @@ const RegisterForm = () => {
               <Select placeholder="Select Type" allowClear>
                 <Option value="Deposit">individual</Option>
                 <Option value="Withdrawal">individual IRA Joint</Option>
-                {/* <Option value="Dividend">Dividend</Option>
-                <Option value="Fee">Fee</Option>
-                <Option value="Interest">Interest</Option>
-                <Option value="luSecurityTransfercy">Security Transfer</Option>
-                <Option value="Trade">Trade</Option> */}
               </Select>
             </div>
-            <div className="ant-col-md-24" style={{ paddingLeft: "8px", paddingRight: "8px" }}>
-              <div className="link-box-root">
-                <h4 className="link-title">
-                  Q1: I plan to begin withdrawing money from my investments in:
-                </h4>
-                <Radio.Group defaultValue={1}>
-                  <Radio style={radioStyle} value={1}>
-                    Less than 3 years
-                  </Radio>
-                  <Radio style={radioStyle} value={2}>
-                    3–5 years
-                  </Radio>
-                  <Radio style={radioStyle} value={3}>
-                    6–10 years
-                  </Radio>
-                  <Radio style={radioStyle} value={4}>
-                    11 years or more
-                  </Radio>
-                </Radio.Group>
-              </div>
-            </div>
-            <div className="ant-col-md-24" style={{ paddingLeft: "8px", paddingRight: "8px" }}>
-              <div className="link-box-root">
-                <h4 className="link-title">Q2: When I invest my money, I am:</h4>
-                <Radio.Group defaultValue={1}>
-                  <Radio style={radioStyle} value={1}>
-                    Most concerned about my investment losing value
-                  </Radio>
-                  <Radio style={radioStyle} value={2}>
-                    Equally concerned about my investment losing or gaining value
-                  </Radio>
-                  <Radio style={radioStyle} value={3}>
-                    Most concerned about my investment gaining value
-                  </Radio>
-                  {/* <Radio style={radioStyle} value={3}>
-                  11 years or more
-                </Radio> */}
-                </Radio.Group>
-              </div>
-            </div>
-            <div className="ant-col-md-24" style={{ paddingLeft: "8px", paddingRight: "8px" }}>
-              <div className="link-box-root">
-                <h4 className="link-title">
-                  Q3: Imagine that in the past three months, the overall stock market lost 35% of
-                  its value. An individual stock investment you own also lost 35% of its value. What
-                  would you do?
-                </h4>
-                <Radio.Group defaultValue={1}>
-                  <Radio style={radioStyle} value={1}>
-                    Sell all of my shares
-                  </Radio>
-                  <Radio style={radioStyle} value={2}>
-                    Sell some of my shares
-                  </Radio>
-                  <Radio style={radioStyle} value={3}>
-                    Do nothing
-                  </Radio>
-                  <Radio style={radioStyle} value={4}>
-                    Buy more shares
-                  </Radio>
-                </Radio.Group>
-              </div>
-            </div>
+            {data.map((question, index) => {
+              return (
+                <div className="ant-col-md-24" style={{ paddingLeft: "8px", paddingRight: "8px" }}>
+                  <div className="link-box-root">
+                    <h4 className="link-title">{`Q${index + 1}: ${question.question}:`}</h4>
+                    <Radio.Group defaultValue={1}>
+                      {question.options.map((op) => {
+                        return (
+                          <Radio style={radioStyle} value={op}>
+                            {op}
+                          </Radio>
+                        );
+                      })}
+                    </Radio.Group>
+                  </div>
+                </div>
+              );
+            })}
             <Form.Item shouldUpdate={true}>
               {() => (
                 <Button
                   type="primary"
                   htmlType="submit"
+                  className="ant-btn ant-btn-primary"
                   // disabled={
                   //   !form.isFieldsTouched(true) ||
                   //   form.getFieldsError().filter(({ errors }) => errors.length).length
                   // }
-                  href="/auth/changePassword"
-                >
+                  href="/plan">
                   Submit
                 </Button>
               )}

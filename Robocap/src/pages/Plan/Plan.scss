@@ -1,0 +1,79 @@
+.plan-page {
+  background-color: #f6f8fc;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  .inner-div {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 16px;
+    padding-top: 20px;
+    h3 {
+      padding-top: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 700;
+    }
+    h5 {
+      padding-top: 10px;
+      text-align: center;
+      font-size: 16px;
+      color: #888e98;
+    }
+    .total-values {
+      margin-left: -8px;
+      margin-right: -8px;
+      position: relative;
+      height: auto;
+      zoom: 1;
+      display: flex;
+      box-sizing: border-box;
+      h4 {
+        font-size: 16px;
+        color: #888e98;
+      }
+      p {
+        padding-top: 0px;
+        font-size: 20px;
+        font-weight: 600;
+      }
+      .total-assets {
+        background-image: url("../../assets/images/wallet.png");
+        display: block;
+        box-sizing: border-box;
+        width: 33.33333333%;
+        padding-left: 56px;
+        padding-top: 40px;
+        padding-bottom: 10px;
+        background-repeat: no-repeat;
+        background-size: 44px 44px;
+        background-position: 0;
+      }
+      .total-earning {
+        background-image: url("../../assets/images/assets.png");
+        display: block;
+        box-sizing: border-box;
+        width: 33.33333333%;
+        padding-left: 56px;
+        padding-top: 40px;
+        padding-bottom: 10px;
+        background-repeat: no-repeat;
+        background-size: 44px 44px;
+        background-position: 0;
+      }
+      .total-return {
+        background-image: url("../../assets/images/earning.png");
+        display: block;
+        box-sizing: border-box;
+        width: 33.33333333%;
+        padding-left: 56px;
+        padding-top: 40px;
+        padding-bottom: 10px;
+        background-repeat: no-repeat;
+        background-size: 44px 44px;
+        background-position: 0;
+      }
+    }
+  }
+}

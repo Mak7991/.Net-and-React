@@ -11,7 +11,7 @@ import "./Activity.scss";
 
 const { Option } = Select;
 
-const dateFormat = "YYYY/MM/DD";
+const dateFormat = "MM/DD/YYYY";
 
 // const customFormat = value => {
 //   return `custom format: ${value.format(dateFormat)}`;
@@ -94,13 +94,13 @@ const Activity = () => {
             <div className="start-date">
               <h4>Select Start Date:</h4>
               <Space direction="vertical">
-                <DatePicker defaultValue={moment("2001/01/01", dateFormat)} format={dateFormat} />
+                <DatePicker defaultValue={moment("01/01/2000", dateFormat)} format={dateFormat} />
               </Space>
             </div>
             <div className="end-date">
               <h4>Select End Date:</h4>
               <Space direction="vertical">
-                <DatePicker defaultValue={moment("2001/01/01", dateFormat)} format={dateFormat} />
+                <DatePicker defaultValue={moment("01/01/2000", dateFormat)} format={dateFormat} />
               </Space>
             </div>
           </div>

@@ -60,7 +60,9 @@ function ClientPanel() {
                       <div className="type">MANUAL</div>
                       <div className="icon-wrap ant-dropdown-trigger">
                         <span>
-                          <MoreOutlined className="icon" />
+                          <Link to="/newaccount">
+                            <MoreOutlined className="icon" />
+                          </Link>
                         </span>
                       </div>
                     </div>
@@ -97,7 +99,9 @@ function ClientPanel() {
                       <div className="type">MANUAL</div>
                       <div className="icon-wrap ant-dropdown-trigger">
                         <span>
-                          <MoreOutlined className="icon" />
+                          <Link to="/newaccount">
+                            <MoreOutlined className="icon" />
+                          </Link>
                         </span>
                       </div>
                     </div>
