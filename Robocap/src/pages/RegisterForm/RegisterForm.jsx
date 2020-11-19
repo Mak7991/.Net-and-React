@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Form, Button, Radio, Select } from "antd";
 // import { LockOutlined } from "@ant-design/icons";
 import "./RegisterForm.scss";
