@@ -31,23 +31,6 @@ const RegisterForm = () => {
   //   });
   // };
 
-  var myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
-
-  var raw = JSON.stringify({ EmailID: "maaz@catalyst.com", Password: "12345678" });
-
-  var requestOptions = {
-    method: "POST",
-    headers: myHeaders,
-    body: raw,
-    redirect: "follow",
-  };
-
-  fetch("http://10.2.0.201:8885/api/login", requestOptions)
-    .then((response) => response.text())
-    .then((result) => console.log(result))
-    .catch((error) => console.log("error", error));
-
   const data = [
     {
       question: "I plan to begin withdrawing money from my investments in",

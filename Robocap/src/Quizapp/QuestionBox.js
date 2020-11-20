@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 // import "../style.css";
 
 // Function to question inside our app
 const QuestionBox = ({ question, options, selected }) => {
-  const [answer, setAnswer] = useState(options);
+  // const [answer, setAnswer] = useState(options.answer);
   return (
     <div className="questionBox">
-      <div className="question">{question}</div>
-      {answer.map((text, index) => (
+      <div className="question">{`Q: ${question}`}</div>
+      {options && options.map((text, index) => (
         <button
           key={index}
           className="answerBtn"
           onClick={() => {
-            setAnswer();
+            // setAnswer();
             selected(text);
           }}>
           {text}

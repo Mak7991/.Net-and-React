@@ -1,23 +1,10 @@
 import React from "react";
 import { Button, Form, Input } from "antd";
-import login from "../../services/auth.service"
+// import login from "../../services/auth.service";
 import "antd/dist/antd.css";
 import "./Login.scss";
 
-// const values = [
-//   {
-//     emailAddress: "maaz123@gmail.com",
-//     password: "admin123",
-//   },
-// ];
-
 const Login = () => {
-  // const onFinish = () => {
-  //   // debugger;
-  //   if (("Received values of form: ", values.emailAddress, values.password)) {
-  //     return <Redirect to="/ClientPanel" />;
-  //   }
-  // };
   return (
     <div className="login">
       <div className="login-body">

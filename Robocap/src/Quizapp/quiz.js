@@ -46,6 +46,8 @@ componentDidMount() {
 	this.getQuestions(); 
 } 
 
+
+
 render() { 
 	return (<div className="container"> 
 	<div className="title"> 
