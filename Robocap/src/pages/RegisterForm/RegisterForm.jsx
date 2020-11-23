@@ -10,26 +10,11 @@ const RegisterForm = () => {
   // const [form] = Form.useForm();
   // const [, forceUpdate] = useState(); // To disable submit button at the beginning.
 
-  // useEffect(() => {
-  //   forceUpdate({});
-  // }, []);
-
-  // const onFinish = (values) => {
-  //   console.log("Finish:", values);
-  // };
-
   const radioStyle = {
     display: "block",
     height: "30px",
     lineHeight: "30px",
   };
-
-  // const onChange = (e) => {
-  //   console.log("radio checked", e.target.value);
-  //   this.setState({
-  //     value: e.target.value,
-  //   });
-  // };
 
   const data = [
     {
