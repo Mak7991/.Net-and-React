@@ -1,25 +1,36 @@
 import axios from "axios";
 
+// import REACT_APP_SERVER_URL from ".env"
 
-
-export const data = await axios.post(
+export const login = await axios.post(
   REACT_APP_SERVER_URL,
   {
-    query: `mutation updateUserCity($id: Int!, $city: String!) {
-    updateUserCity(userID: $id, city: $city){
-      id
-      name
-      age
-      city
-      knowledge{
-        language
-        frameworks
+    query: `query login($id: Int!, $emailID: String!, $password: String! ) {
+    login(id: $id, emailID: $emailID, password: $password){
+      token
+      user{
+        id
+        username
+        emailID
+        password
+        rolename
+      }
+      admin{
+        id
+        username
+        emailID
+        password
+        rolename
       }
     }
   }`,
     variables: {
-      id: 2,
-      city: "Test",
+      token,
+      id,
+      username,
+      emailID,
+      password,
+      rolename,
     },
   },
   {
@@ -27,22 +38,20 @@ export const data = await axios.post(
       "Content-Type": "application/json",
     },
   }
-  
 );
 
+// const register = (username, email, password) => {
+//   return axios.post(REACT_APP_SERVER_URL + "signup", {
+//     username,
+//     email,
+//     password,
+//   });
+// };
 
-const register = (username, email, password) => {
-  return axios.post(REACT_APP_SERVER_URL + "signup", {
-    username,
-    email,
-    password,
-  });
-};
-
-const login = (username, password) => {
+const login = (emailID, password) => {
   return axios
     .post(REACT_APP_SERVER_URL + "login", {
-      username,
+      emailID,
       password,
     })
     .then((response) => {
@@ -59,7 +68,7 @@ const logout = () => {
 };
 
 // Invoke the query and log the person's name
-client.query({ query }).then(response => {
+client.query({ query }).then((response) => {
   console.log(response.data.name);
 });
 
