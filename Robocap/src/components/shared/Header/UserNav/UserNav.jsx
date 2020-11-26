@@ -4,6 +4,13 @@ import { Breadcrumb, Dropdown, Menu } from "antd";
 import { MailOutlined, DownOutlined, PoweroffOutlined, MessageOutlined } from "@ant-design/icons";
 import "./UserNav.scss";
 
+// pageChangeHandler = () => {
+//   window.location.replace("/");
+// };
+const pageChangeHandler = () => {
+  window.location.replace("/");
+};
+
 const UserNav = () => {
   const menu = (
     <Menu>
@@ -15,14 +22,13 @@ const UserNav = () => {
         </Link>
       </Menu.Item>
       <Menu.Item key="3">
-        <Link to="/">
+        <div onClick={pageChangeHandler}>
           <PoweroffOutlined style={{ fontSize: "15px", color: "#888e98", padding: "10px" }} />
-          Log out
-        </Link>
+          <span>Log out</span>
+        </div>
       </Menu.Item>
     </Menu>
   );
-
   return (
     <Breadcrumb className="user-dropdown">
       <Breadcrumb.Item href="">

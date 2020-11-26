@@ -27,10 +27,9 @@
 
 // export { client };
 
-
-import { ApolloClient } from 'apollo-client';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { RestLink } from 'apollo-link-rest';
+import { ApolloClient } from "apollo-client";
+import { InMemoryCache } from "apollo-cache-inmemory";
+import { RestLink } from "apollo-link-rest";
 
 // setup your `RestLink` with your endpoint
 const restLink = new RestLink({ uri: "http://10.2.0.201:8085/api/" });
@@ -41,4 +40,4 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-export { client };
+export default client;

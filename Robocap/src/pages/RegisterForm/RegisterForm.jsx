@@ -1,14 +1,11 @@
 import React from "react";
 import { Form, Button, Radio, Select } from "antd";
-// import { LockOutlined } from "@ant-design/icons";
 import "./RegisterForm.scss";
 import Header from "components/shared/Header/Header";
 
 const { Option } = Select;
 
 const RegisterForm = () => {
-  // const [form] = Form.useForm();
-  // const [, forceUpdate] = useState(); // To disable submit button at the beginning.
 
   const radioStyle = {
     display: "block",

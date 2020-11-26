@@ -45,8 +45,8 @@ import {
     );
   };
   
-  export const login = (emailID, password) => (dispatch) => {
-    return AuthService.login(emailID, password).then(
+  export const userLogin = (emailID, password) => (dispatch) => {
+    return AuthService.userLogin(emailID, password).then(
       (data) => {
         dispatch({
           type: LOGIN_SUCCESS,

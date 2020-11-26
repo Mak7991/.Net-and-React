@@ -3,7 +3,7 @@ import React from "react";
 // component
 import Alert from "components/shared/Alert/Alert";
 import { IN_PROGRESS, SUCCESS, FAILED } from "constants/loader";
-import { userLogin } from "services/auth.service";
+import { userLogin } from "redux/actions/auth";
 // library
 import { Button, Form, Input } from "antd";
 import {Redirect, Link} from "react-router-dom"

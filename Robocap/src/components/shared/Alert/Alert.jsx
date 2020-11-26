@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Alert as AntdAlert } from "antd";
-import "components/shared/Alert/Alert.scss";
+import "./Alert.scss";
 
 const Alert = (props) => {
   return (
