@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Header from "components/shared/Header/Header";
-import { getNotification } from "redux/actions/notificationActions";
+import Header from "modules/user/node_modules/components/shared/Header/Header";
+// import { getNotification } from "modules/user/views/StudentHeaderContainer/node_modules/redux/actions/notificationActions";
 class AdminHeaderContainer extends Component {
   getNotificationHandler = () => {
     this.props.getNotification();
@@ -13,7 +13,7 @@ class AdminHeaderContainer extends Component {
         protectedRoute={true}
         user={this.props.user}
         navigateItem={navigateItem}
-        notification={this.props.notification}
+        // notification={this.props.notification}
         clicked={this.getNotificationHandler}
       />
     );

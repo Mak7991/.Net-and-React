@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import auth from "./auth";
+import auth from "./loginAction";
 import message from "./message";
 
 export default combineReducers({

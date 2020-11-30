@@ -3,7 +3,7 @@ import React from "react";
 // component
 import Alert from "components/shared/Alert/Alert";
 import { IN_PROGRESS, SUCCESS, FAILED } from "constants/loader";
-import { userLogin } from "services/auth.service";
+import { userLogin } from "redux/actions/loginActions";
 // library
 import { Button, Form, Input } from "antd";
 import {Redirect, Link} from "react-router-dom"
@@ -15,6 +15,7 @@ class Login extends React.Component {
   onFinish = async (values) => {
     const response = await this.props.userLogin(values.emailID, values.password);
   };
+  
   render() {
     const { loginButtonUiState, error } = this.props.userLogin;
     if (loginButtonUiState === SUCCESS) {

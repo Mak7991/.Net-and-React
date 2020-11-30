@@ -1,8 +1,8 @@
 import React from "react";
 
 // component
-import Alert from "components/shared/Alert/Alert";
-import { IN_PROGRESS, SUCCESS, FAILED } from "constants/loader";
+import Alert from "modules/user/views/StudentProfile/StudentProfileMain/node_modules/components/shared/Alert/Alert";
+import { IN_PROGRESS, SUCCESS, FAILED } from "modules/user/views/StudentProfile/StudentProfileMain/node_modules/constants/loader";
 import { userLogin } from "redux/actions/auth";
 // library
 import { Button, Form, Input } from "antd";

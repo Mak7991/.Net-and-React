@@ -3,7 +3,7 @@ import React from "react";
 // component
 import TotalGraph from "components/ClientPanelUiComponent/AssetsGraph/TotalGraph";
 import ReturnGraph from "components/ClientPanelUiComponent/AssetsGraph/ReturnGraph";
-import Header from "components/shared/Header/Header";
+// import Header from "modules/user/node_modules/components/shared/Header/Header";
 import UserDetail from "components/ClientPanelUiComponent/UserDetail/UserDetail";
 import GoalDetail from "components/ClientPanelUiComponent/GoalDetail/GoalDetail";
 // library
@@ -11,12 +11,11 @@ import { PlusOutlined, MoreOutlined } from "@ant-design/icons";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 // scss
-import "./ClientPanel.scss";
+import "./AdminPanel.scss";
 
 function ClientPanel() {
   return (
     <div className="home-page">
-      <Header />
       <Container>
         <section>
           <UserDetail />

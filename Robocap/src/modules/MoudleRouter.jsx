@@ -1,20 +1,18 @@
 import React from "react";
-import { Switch, Route, withRouter } from "react-router-dom";
-import StudentRouter from "modules/student/StudentRouter";
-import TeacherRouter from "modules/teacher/TeacherRouter";
-import AdminRouter from "modules/admin/AdminRouter";
-import NotFound from "components/shared/NotFound/NotFound";
-import { STUDENT, TEACHER, SUPERADMIN } from "constants/roles";
+import { withRouter } from "react-router-dom";
+import ClientPanel from "pages/ClientPanelHome/ClientPanel";
+// import TeacherRouter from "modules/teacher/TeacherRouter";
+import AdminPanel from "pages/AdminPanelHome/AdminPanel";
+import NotFound from "pages/NotFound/NotFound";
+import { USER, ADMIN } from "constants/roles";
 
 const MoudleRouter = (props) => {
-  const { role } = props;
-  switch (role) {
-    case STUDENT:
-      return <StudentRouter {...props} />;
-    case TEACHER:
-      return <TeacherRouter {...props} />;
-    case SUPERADMIN:
-      return <AdminRouter {...props} />;
+  const { roleroleName } = props;
+  switch (roleroleName) {
+    case USER:
+      return <ClientPanel />;
+    case ADMIN:
+      return <AdminPanel />;
     default:
       return <NotFound />;
   }

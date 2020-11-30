@@ -1,52 +1,64 @@
-import axios from "axios";
-import client  from "setup/graphql";
-import { LOGIN_IN_PROGRESS, LOGIN_SUCCESS, LOGIN_FAILED } from "constants/action";
+import {
+  // validate user
+  VALIDATE_USER_IN_PROGRESS,
+  VALIDATE_USER_SUCCESS,
+  VALIDATE_USER_FAILED,
+  // login
+  LOGIN_IN_PROGRESS,
+  LOGIN_SUCCESS,
+  LOGIN_FAILED,
+} from "constants/action";
+import client from "setup/graphql";
+import { login, authorizeUser } from "queries/auth";
 
-const REACT_APP_SERVER_URL = "http://10.2.0.201:8085/api/";
-
-const login = axios.post(
-  REACT_APP_SERVER_URL,
-  {
-    query: `query login($id: Int!, $emailID: String!, $password: String! ) {
-    data(id: $id, emailID: $emailID, password: $password){
-      token
-      user{
-        id
-        username
-        emailID
-        password
-        rolename
+// validiate user
+export const validateUser = () => {
+  return async (dispatch) => {
+    dispatch(validationInProgress());
+    try {
+      const { data } = await client.query({
+        query: authorizeUser,
+      });
+      if (data.authorizeUser.user) {
+        dispatch(validationSuccessful(data.authorizeUser.user));
+      } else if (data.authorizeUser.admin) {
+        dispatch(validationSuccessful(data.authorizeUser.admin));
       }
-      admin{
-        id
-        username
-        emailID
-        password
-        rolename
-      }
+      // else if (data.authorizeUser.superAdmin) {
+      //   dispatch(validationSuccessful(data.authorizeUser.superAdmin));
+      // }
+      return;
+    } catch (err) {
+      //handle error condition if required
+      dispatch(validationError(err));
+      return err;
     }
-  }`,
-  variables: {
-    data: {
-      emailID: "",
-      password:"",
-    },
-  },
-  },
-  {
-    headers: {
-      "Content-Type": "application/json",
-    },
-  }
-);
+  };
+};
 
-// const register = (username, email, password) => {
-//   return axios.post(REACT_APP_SERVER_URL + "signup", {
-//     username,
-//     email,
-//     password,
-//   });
-// };
+const validationInProgress = () => {
+  return {
+    type: VALIDATE_USER_IN_PROGRESS,
+    payload: {},
+  };
+};
+
+const validationSuccessful = (user) => {
+  return {
+    type: VALIDATE_USER_SUCCESS,
+    payload: {
+      user,
+    },
+  };
+};
+const validationError = (err) => {
+  return {
+    type: VALIDATE_USER_FAILED,
+    payload: {
+      err,
+    },
+  };
+};
 
 //login
 export const userLogin = (emailID, password) => {
@@ -67,17 +79,12 @@ export const userLogin = (emailID, password) => {
       if (data.login.user) {
         dispatch(setLoginSuccess(data.login.user));
         localStorage.setItem("id", data.login.user.id);
-        localStorage.setItem("email", data.login.user.email);
+        localStorage.setItem("emailID", data.login.user.email);
       } else if (data.login.admin) {
         dispatch(setLoginSuccess(data.login.admin));
         localStorage.setItem("id", data.login.admin.id);
-        localStorage.setItem("email", data.login.admin.email);
-      } 
-      // else if (data.login.superAdmin) {
-      //   dispatch(setLoginSuccess(data.login.superAdmin));
-      //   localStorage.setItem("id", data.login.superAdmin.id);
-      //   localStorage.setItem("email", data.login.superAdmin.email);
-      // }
+        localStorage.setItem("emailID", data.login.admin.email);
+      }
       return data;
     } catch (err) {
       dispatch(setLoginError(err.message));

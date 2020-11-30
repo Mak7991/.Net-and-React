@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Menu, Avatar, Popover, Button } from "antd";
 import { withRouter, NavLink, Link, matchPath } from "react-router-dom";
 import { connect } from "react-redux";
-import Container from "components/shared/Container/Container";
+import Container from "modules/user/views/ClassroomFeed/node_modules/components/shared/Container/Container";
 import {
   LogoutOutlined,
   BellOutlined,
@@ -11,10 +11,10 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import "components/shared/Header/Header.scss";
-import Loader from "components/shared/Loader/Loader";
+import Loader from "modules/user/node_modules/components/shared/Loader/Loader";
 import Notify from "components/Notifications/Notifications";
 import NotifyError from "components/Notifications/NotifyError/NotifyError";
-import Async from "components/shared/Async/Async";
+import Async from "modules/user/views/ClassroomFeed/node_modules/components/shared/Async/Async";
 class TestHeader extends Component {
   state = {
     current: "feed",
