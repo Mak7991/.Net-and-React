@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 // scss
 import "./AdminPanel.scss";
 
-function ClientPanel() {
+function AdminPanel() {
   return (
     <div className="home-page">
       <Container>
@@ -133,4 +133,4 @@ function ClientPanel() {
   );
 }
 
-export default ClientPanel;
+export default AdminPanel;

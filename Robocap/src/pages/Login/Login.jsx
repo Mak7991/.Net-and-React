@@ -17,7 +17,7 @@ class Login extends React.Component {
   };
   
   render() {
-    const { loginButtonUiState, error } = this.props.userLogin;
+    const { loginButtonUiState, error } = this.props.login;
     if (loginButtonUiState === SUCCESS) {
       return <Redirect to="/" />;
     }
@@ -44,7 +44,7 @@ class Login extends React.Component {
               }}>
               <Form.Item
                 label="Email Address:"
-                name="emailAddress"
+                name="emailID"
                 rules={[
                   {
                     required: true,
@@ -100,7 +100,7 @@ class Login extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    userLogin: state.userLogin,
+    login: state.login,
   };
 };
 

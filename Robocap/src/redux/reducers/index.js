@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import auth from "./loginAction";
+import login from "./login";
 import message from "./message";
 
 export default combineReducers({
-  auth,
+  login,
   message,
 });

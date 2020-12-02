@@ -14,12 +14,12 @@ class ProtectedRoutes extends React.Component {
   }
 
   render() {
-    const { uiState, error, user } = this.props.login;
+    const { uiState, error, data } = this.props.login;
     return (
       <Async
         uiState={uiState}
         error={error}
-        onSuccess={() => <MoudleRouter roleName={user.roleName} />}
+        onSuccess={() => <MoudleRouter roleName={data.roleName} />}
         onFailure={() => <Redirect to="/auth/login" />}
       />
     );
