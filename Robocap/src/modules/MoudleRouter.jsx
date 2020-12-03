@@ -9,9 +9,9 @@ const MoudleRouter = (props) => {
   const { roleName } = props;
   switch (roleName) {
     case USER:
-      return <ClientRouter />;
+      return <ClientRouter {...props} />;
     case ADMIN:
-      return <AdminRouter />;
+      return <AdminRouter {...props} />;
     default:
       return <NotFound />;
   }

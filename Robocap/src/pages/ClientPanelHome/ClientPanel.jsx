@@ -7,9 +7,9 @@ import Header from "components/shared/Header/Header";
 import UserDetail from "components/ClientPanelUiComponent/UserDetail/UserDetail";
 import GoalDetail from "components/ClientPanelUiComponent/GoalDetail/GoalDetail";
 // library
-import { PlusOutlined, MoreOutlined } from "@ant-design/icons";
+// import { PlusOutlined } from "@ant-design/icons";
 import { Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 // scss
 import "./ClientPanel.scss";
 
@@ -32,7 +32,7 @@ function ClientPanel() {
         <section className="user-goal">
           <GoalDetail />
         </section>
-        <section>
+        {/* <section>
           <div className="investment-goal">
             <Link to="/newaccount" className="investment-goal-btn">
               <i className="btn-icon">
@@ -41,8 +41,8 @@ function ClientPanel() {
               <span>Learn about more investment goal</span>
             </Link>
           </div>
-        </section>
-        <section className="manage-assets-summary">
+        </section> */}
+        {/* <section className="manage-assets-summary">
           <h1>Held-away Accounts</h1>
           <div className="account-list-wrap">
             <div className="list-banner">
@@ -132,7 +132,7 @@ function ClientPanel() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
       </Container>
     </div>
   );

@@ -63,7 +63,7 @@ class Settings extends React.Component {
                   quiz will help you determine your profile and then
                 </div>
                 <div className="">
-                  <Link className="ant-btn ant-btn-primary" to="/auth/registerform">
+                  <Link className="ant-btn ant-btn-primary" to="/registerform">
                     Preview
                   </Link>
                 </div>

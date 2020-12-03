@@ -1,6 +1,6 @@
 import React from "react";
 // library
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { MobileOutlined, MailOutlined, HomeOutlined } from "@ant-design/icons";
 import { Col, Row } from "antd";
 // scss
@@ -62,7 +62,7 @@ const UserDetail = () => {
                 </Col>
               </Row>
             </div>
-            <div className="user-assets-detail">
+            {/* <div className="user-assets-detail">
               <Row>
                 <img
                   src={require("../../../assets/images/link.png")}
@@ -76,7 +76,7 @@ const UserDetail = () => {
                   <p>PKR 500,000.00</p>
                 </Col>
               </Row>
-            </div>
+            </div> */}
             <div className="user-assets-detail">
               <Row>
                 <img

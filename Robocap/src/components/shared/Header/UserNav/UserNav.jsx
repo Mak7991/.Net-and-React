@@ -16,9 +16,9 @@ const UserNav = () => {
     <Menu>
       <Menu.Item key="1">robocapgoal@demo.com</Menu.Item>
       <Menu.Item key="2">
-        <Link to="/feedback">
+        <Link to="/auth/changePassword">
           <MessageOutlined style={{ fontSize: "15px", color: "#888e98", padding: "10px" }} />
-          Feedback
+          Set Password
         </Link>
       </Menu.Item>
       <Menu.Item key="3">

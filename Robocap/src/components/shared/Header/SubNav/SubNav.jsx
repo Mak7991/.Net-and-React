@@ -21,9 +21,9 @@ const SubNav = () => {
       <Menu.Item key="">
         <Link to="/documents/reports">Documents</Link>
       </Menu.Item>
-      <Menu.Item key="">
+      {/* <Menu.Item key="">
         <Link to="/settings">Setting</Link>
-      </Menu.Item>
+      </Menu.Item> */}
     </Menu>
   );
 };

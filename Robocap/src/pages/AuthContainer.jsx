@@ -14,11 +14,11 @@ class AuthContainer extends Component {
         <Switch>
           <Route path={`${this.props.match.url}/login`} exact component={Login} />
           <Route
-            path={`${this.props.match.url}/forgot-password`}
+            path={`${this.props.match.url}/changePassword`}
             exact
             component={ChangePassword}
           />
-          <Route path={`${this.props.match.url}/set-password`} exact component={SetNewPassword} />
+          <Route path={`${this.props.match.url}/setpassword`} exact component={SetNewPassword} />
           <Route
             path={this.props.match.url}
             exact

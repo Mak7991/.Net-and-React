@@ -22,7 +22,7 @@ const initialState = {
   setPasswordButtonUiState: null,
   forgotPasswordButtonUiState: null,
   error: "",
-  roleName: {},
+  data: {},
   uiState: IN_PROGRESS,
 };
 
@@ -33,14 +33,14 @@ const auth = (state = initialState, action) => {
         ...state,
         uiState: IN_PROGRESS,
         error: "",
-        roleName: {},
+        data: {},
       };
 
     case VALIDATE_USER_SUCCESS:
       return {
         ...state,
         uiState: SUCCESS,
-        roleName: action.payload.roleName,
+        data: action.payload.data,
         error: "",
       };
 
@@ -49,7 +49,7 @@ const auth = (state = initialState, action) => {
         ...state,
         error: action.payload.error,
         uiState: FAILED,
-        roleName: {},
+        data: {},
       };
 
     case LOGIN_IN_PROGRESS:
@@ -57,14 +57,14 @@ const auth = (state = initialState, action) => {
         ...state,
         loginButtonUiState: IN_PROGRESS,
         error: "",
-        roleName: {},
+        data: {},
       };
 
     case LOGIN_SUCCESS:
       return {
         ...state,
         loginButtonUiState: SUCCESS,
-        roleName: action.payload.roleName,
+        data: action.payload.data,
         error: "",
       };
 
@@ -73,7 +73,7 @@ const auth = (state = initialState, action) => {
         ...state,
         error: action.payload.error,
         loginButtonUiState: FAILED,
-        roleName: {},
+        data: {},
       };
     case UPDATE_PASSWORD_IN_PROGRESS:
       return {
