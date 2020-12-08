@@ -7,7 +7,7 @@ import {
   Activity,
   ManageTransfer,
   Documents,
-  Settings,
+  // Settings,
   ChangePassword,
   RegisterForm,
   Plan,
@@ -49,13 +49,13 @@ const AppRouter = () => (
     <Route path="/clientpanel" component={ClientPanel} />
     <Route path="/performance" component={Performance} />
     <Route path="/activity" component={Activity} />
-    <Route path="/transfer" component={ManageTransfer} />
+    <Route path="/transfer/history" component={ManageTransfer} />
     <Route path="/documents" component={Documents} />
     {/* <Route path="/settings" component={Settings} /> */}
     <Route path="/auth/changePassword" component={ChangePassword} />
     <Route path="/registerform" component={RegisterForm} />
     <Route path="/plan" component={Plan} />
-    <Route path="*" component={NotFound} />
+    <Route component={NotFound} />
   </Switch>
 );
 

@@ -15,6 +15,7 @@ class Header extends Component {
   state = {
     current: "mail",
     is_visible: false,
+    userID:""
   };
   showDrawer = () => {
     this.setState({
@@ -46,9 +47,8 @@ class Header extends Component {
                 <SubNav />
               </div>
               <div className="rightMenu">
-                <UserNav />
+                <UserNav {...this.props} />
               </div>
-              {/* <Button className="barsMenu" type="primary" onClick={this.showDrawer}> */}
               <MenuFoldOutlined className="barsMenu" type="primary" onClick={this.showDrawer} />
               {/* </Button> */}
               <Drawer

@@ -8,7 +8,7 @@ function ClientRouter(props) {
     <>
       <Header />
       <Switch>
-        <Route exact path={`/clientpanel`} exact component={ClientPanel} />
+        <Route path="/clientpanel" component={ClientPanel} />
         <Route component={NotFound} />
       </Switch>
     </>

@@ -8,13 +8,10 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAILED,
 } from "constants/action";
-// import message from "redux/reducers/message";
-// import client from "setup/graphql";
 import axios from "axios";
-const REACT_APP_SERVER_URL = "http://10.2.0.201:8085/api/";
+const REACT_APP_SERVER_URL = "http://localhost:8085/api/";
 
 export const userLogin = (emailID, password) => {
-
   // console.log(emailID + " " + password);
   const request = axios.post(REACT_APP_SERVER_URL + "Login", {
     emailID,
@@ -22,36 +19,29 @@ export const userLogin = (emailID, password) => {
   });
   return (dispatch) => {
     request
-      .then((res) => {
+      .then((response) => {
         // console.log(res, "LOGIN_SUCCESS");
-        // dispatch({
-        //   type: "LOGIN_SUCCESS",
-        //   data: res.data,
-        // });
-        dispatch(setLoginInProgress(res.data));
-        const { data } = res;
+        dispatch(setLoginInProgress(response.data));
+        const { data } = response;
         // console.log(data);
-        if(data !== "Invalid UserName/Password !"){
-          if (data.token != null)
-                {
-                    if (data.roleName === "User") {
-                        // store username and jwt token in local storage to keep user logged in between page refreshes
-                        dispatch(setLoginSuccess(data.roleName));
-                        localStorage.setItem('Client', JSON.stringify({data: data.UserId, id: data.id, username: data.userName, token: data.token ,emailID:data.emailID}));
-                    }
-                    else if (data.roleName === "Admin") {
-                        // store username and jwt token in local storage to keep user logged in between page refreshes
-                        dispatch(setLoginSuccess(data.roleName));
-                        localStorage.setItem('Admin',JSON.stringify({ username: data.userName, token: data.token ,emailID:data.emailID}));
-                    }
-                    // return true to indicate successful login
-                    return data;
-                } else {
-                    // return false to indicate failed login
-                    return null;
-                }
-      }
-        return data;
+        if (data !== "Invalid UserName/Password !") {
+          if (data.token != null) {
+            if (data.roleName === "User") {
+              // store username and jwt token in local storage to keep user logged in between page refreshes
+              dispatch(setLoginSuccess(data));
+              localStorage.setItem("Client", JSON.stringify(response.data));
+            } else if (data.roleName === "Admin") {
+              // store username and jwt token in local storage to keep user logged in between page refreshes
+              dispatch(setLoginSuccess(data));
+              localStorage.setItem("Admin", JSON.stringify(response.data));
+            }
+            // return true to indicate successful login
+            return data;
+          } else {
+            // return false to indicate failed login
+            return null;
+          }
+        }
       })
       .catch((err) => {
         // console.log(err.response, "LOGIN_FAILED");
@@ -67,11 +57,11 @@ const setLoginInProgress = () => {
     payload: {},
   };
 };
-const setLoginSuccess = (data) => {
+const setLoginSuccess = (user) => {
   return {
     type: LOGIN_SUCCESS,
     payload: {
-     data
+      user,
     },
   };
 };
@@ -84,12 +74,26 @@ const setLoginError = (error) => {
   };
 };
 
+// export const validiateUser=()=>{
+
+// }
+
+export const register = (UserName, emailID, code, password, confirmPassword) => {
+  return axios.post(REACT_APP_SERVER_URL + "Registration?EmailID=", {
+    UserName,
+    emailID,
+    code,
+    password,
+    confirmPassword,
+  });
+};
+
 const logout = () => {
-  localStorage.removeItem("user");
+  localStorage.removeItem("data");
 };
 
 export default {
-  // register,
+  register,
   userLogin,
   logout,
 };

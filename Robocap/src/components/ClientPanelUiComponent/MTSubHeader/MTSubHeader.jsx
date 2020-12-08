@@ -13,10 +13,10 @@ const MTSubHeader = () => {
         <div className="sidebar-box">
           <div className="sector-box">
             <Menu theme="light" mode="vertical">
-              <div className="per-title">Transfer Funds</div>
+              {/* <div className="per-title">Transfer Funds</div>
               <Menu.Item key="1" className="sub-links">
                 <NavLink to="/transfer/deposit">Deposit</NavLink>
-              </Menu.Item>
+              </Menu.Item> */}
               <div className="per-title">Transfer Positions</div>
               <Menu.Item key="2" className="sub-links">
                 <NavLink to="/transfer/history">Transaction History</NavLink>

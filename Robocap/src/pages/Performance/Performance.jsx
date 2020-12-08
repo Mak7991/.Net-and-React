@@ -5,10 +5,10 @@ import { Container } from "react-bootstrap";
 import "antd/dist/antd.css";
 import TotalGraph from "components/ClientPanelUiComponent/AssetsGraph/TotalGraph";
 import ReturnGraph from "components/ClientPanelUiComponent/AssetsGraph/ReturnGraph";
-import PAclassGraph from "components/ClientPanelUiComponent/PAclassGraph/PAclassGraph";
+// import PAclassGraph from "components/ClientPanelUiComponent/PAclassGraph/PAclassGraph";
 import PsectorGraph from "components/ClientPanelUiComponent/PsectorGraph/PsectorGraph";
-import AAclassGraph from "components/ClientPanelUiComponent/AAclassGraph/AAclassGraph";
-import AsectorGraph from "components/ClientPanelUiComponent/AsectorGraph/AsectorGraph";
+// import AAclassGraph from "components/ClientPanelUiComponent/AAclassGraph/AAclassGraph";
+// import AsectorGraph from "components/ClientPanelUiComponent/AsectorGraph/AsectorGraph";
 
 const Performance = () => {
   return (
@@ -28,18 +28,18 @@ const Performance = () => {
                     <span className="">
                       <a href="#Growth">Total Return</a>{" "}
                     </span>
-                    <span className="">
+                    {/* <span className="">
                       <a href="#PerformanceByAssetClass"> Performance by Asset Class</a>
-                    </span>
+                    </span> */}
                     <span className="">
                       <a href="#PerformanceBySector">Performance by Sector</a>{" "}
                     </span>
-                    <span className="">
+                    {/* <span className="">
                       <a href="#AllocationByAssetClass">Allocation by Asset Class</a>{" "}
-                    </span>
-                    <span className="">
+                    </span> */}
+                    {/* <span className="">
                       <a href="#AllocationBySector">Allocation by Sector</a>{" "}
-                    </span>
+                    </span> */}
                   </div>
                 </div>
               </div>
@@ -83,18 +83,18 @@ const Performance = () => {
                 <div id="Growth" className="total-return-grapgh">
                   <ReturnGraph />
                 </div>
-                <div id="PerformanceByAssetClass" className="performance-by-assets-class">
+                {/* <div id="PerformanceByAssetClass" className="performance-by-assets-class">
                   <PAclassGraph/>
-                </div>
+                </div> */}
                 <div id="PerformanceBySector" className="performance-by-sector">
                   <PsectorGraph/>
                 </div>
-                <div id="AllocationByAssetClass" className="allocation-by-asset-class">
+                {/* <div id="AllocationByAssetClass" className="allocation-by-asset-class">
                   <AAclassGraph/>
-                </div>
-                <div id="AllocationBySector" className="allocation-by-sector">
+                </div> */}
+                {/* <div id="AllocationBySector" className="allocation-by-sector">
                   <AsectorGraph/>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

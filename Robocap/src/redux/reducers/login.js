@@ -17,14 +17,15 @@ import {
 } from "constants/action";
 import { IN_PROGRESS, SUCCESS, FAILED } from "constants/loader";
 
+const user = JSON.parse(localStorage.getItem("user"));
 const initialState = {
   loginButtonUiState: null,
   setPasswordButtonUiState: null,
   forgotPasswordButtonUiState: null,
   error: "",
-  data: {},
-  uiState: IN_PROGRESS,
+  user: {},
 };
+
 
 const auth = (state = initialState, action) => {
   switch (action.type) {
@@ -33,14 +34,14 @@ const auth = (state = initialState, action) => {
         ...state,
         uiState: IN_PROGRESS,
         error: "",
-        data: {},
+        user: {},
       };
 
     case VALIDATE_USER_SUCCESS:
       return {
         ...state,
         uiState: SUCCESS,
-        data: action.payload.data,
+        user: action.payload.user,
         error: "",
       };
 
@@ -49,7 +50,7 @@ const auth = (state = initialState, action) => {
         ...state,
         error: action.payload.error,
         uiState: FAILED,
-        data: {},
+        user: {},
       };
 
     case LOGIN_IN_PROGRESS:
@@ -57,14 +58,14 @@ const auth = (state = initialState, action) => {
         ...state,
         loginButtonUiState: IN_PROGRESS,
         error: "",
-        data: {},
+        user: {},
       };
 
     case LOGIN_SUCCESS:
       return {
         ...state,
         loginButtonUiState: SUCCESS,
-        data: action.payload.data,
+        user: action.payload.user,
         error: "",
       };
 
@@ -73,7 +74,7 @@ const auth = (state = initialState, action) => {
         ...state,
         error: action.payload.error,
         loginButtonUiState: FAILED,
-        data: {},
+        user: {},
       };
     case UPDATE_PASSWORD_IN_PROGRESS:
       return {
