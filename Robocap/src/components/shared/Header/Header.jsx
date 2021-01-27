@@ -5,17 +5,19 @@ import SubNav from "./SubNav/SubNav";
 import UserNav from "./UserNav/UserNav";
 // library
 import { Navbar, Image, Container } from "react-bootstrap";
-import { Drawer } from "antd";
-import { Link } from "react-router-dom";
+import { Drawer, Menu } from "antd";
+import { Link, NavLink } from "react-router-dom";
 import { MenuFoldOutlined } from "@ant-design/icons";
 // scss
 import "./Header.scss";
+
+const { SubMenu } = Menu;
 
 class Header extends Component {
   state = {
     current: "mail",
     is_visible: false,
-    userID:""
+    userID: "",
   };
   showDrawer = () => {
     this.setState({
@@ -47,18 +49,46 @@ class Header extends Component {
                 <SubNav />
               </div>
               <div className="rightMenu">
-                <UserNav {...this.props} />
+                <UserNav />
+              </div>
+              <div className="side-menu ">
+                <Drawer
+                  placement="right"
+                  closable={false}
+                  onClose={this.onClose}
+                  visible={this.state.visible}>
+                  <div className="rightMenu">
+                    <UserNav />
+                  </div>
+                  <Menu theme="light" mode="inline">
+                    <Menu.Item key="1">
+                      <NavLink to="/clientpanel">Home</NavLink>
+                    </Menu.Item>
+                    <Menu.Item key="2">
+                      <NavLink to="/performance">Performance</NavLink>
+                    </Menu.Item>
+                    <Menu.Item key="3">
+                      <NavLink to="/activity">Activity</NavLink>
+                    </Menu.Item>
+                    <Menu.Item key="4">
+                      <NavLink to="/transfer/history">Manage Transfer</NavLink>
+                    </Menu.Item>
+                    <Menu.Item key="5">
+                      <NavLink to="/documents/reports">Documents</NavLink>
+                    </Menu.Item>
+                  </Menu>
+                </Drawer>
               </div>
               <MenuFoldOutlined className="barsMenu" type="primary" onClick={this.showDrawer} />
-              {/* </Button> */}
-              <Drawer
+
+              {/* <Drawer
                 placement="right"
                 closable={false}
                 onClose={this.onClose}
                 visible={this.state.visible}>
                 <SubNav />
                 <UserNav />
-              </Drawer>
+              </Drawer> */}
             </div>
           </Navbar>
         </Container>

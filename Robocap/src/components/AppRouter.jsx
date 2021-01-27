@@ -7,54 +7,37 @@ import {
   Activity,
   ManageTransfer,
   Documents,
-  // Settings,
-  ChangePassword,
-  RegisterForm,
+  SignUp,
+  // ChangePassword,
+  QuestionnaireForm,
   Plan,
   NotFound,
   ClientPanel,
+  AdminPanel,
 } from "pages";
 
-// const AppRouter = () => (
-//   <Switch>
-//     <Route exact path="/" component={Login} />
-//     <Route path="/clientPanel" component={ClientPanel} />
-//     <Route path="/performance" component={Performance} />
-//     <Route path="/activity" component={Activity} />
-//     <Route path="/transfer" component={ManageTransfer} />
-//     <Route path="/documents" component={Documents} />
-//     <Route path="/settings" component={Settings} />
-//     <Route path="/auth/changePassword" component={ChangePassword} />
-//     <Route path="/auth/registerform" component={RegisterForm} />
-//     <Route path="/plan" component={Plan}/>
-//     <Route path="*" component={NotFound} />
-//   </Switch>
-// );
-
-// export default AppRouter;
+// import UploadStatus from "components/AdminPanelUiComponent/UploadStatus/UploadStatus.";
+// import AccountMapp from "components/AdminPanelUiComponent/AccountMapping/AccountMapping";
 
 import * as React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 
 //Components
 import AuthContainer from "pages/AuthContainer";
-// import NotFound from "pages/NotFound/NotFound";
-// import ProtectedRoutes from "components/ProtectedRoute";
 
 const AppRouter = () => (
   <Switch>
     <Redirect exact from="/" to="/auth" />
     <Route path="/auth" component={AuthContainer} />
-    {/* <Route path="/" component={ProtectedRoutes} /> */}
+    <Route path="/adminpanel" component={AdminPanel} />
     <Route path="/clientpanel" component={ClientPanel} />
     <Route path="/performance" component={Performance} />
     <Route path="/activity" component={Activity} />
     <Route path="/transfer/history" component={ManageTransfer} />
     <Route path="/documents" component={Documents} />
-    {/* <Route path="/settings" component={Settings} /> */}
-    <Route path="/auth/changePassword" component={ChangePassword} />
-    <Route path="/registerform" component={RegisterForm} />
-    <Route path="/plan" component={Plan} />
+    <Route path="/SignUp" component={SignUp} />
+    <Route path="/client/questionnaire/questions" component={QuestionnaireForm} />
+    <Route path="/client/questionnaire/plan" component={Plan} />
     <Route component={NotFound} />
   </Switch>
 );

@@ -1,16 +1,20 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Breadcrumb, Dropdown, Menu } from "antd";
-import { PoweroffOutlined, LockOutlined } from "@ant-design/icons";
-import { userLogin } from "redux/actions/loginActions";
+import { PoweroffOutlined, LockOutlined, DownOutlined } from "@ant-design/icons";
+import { logout } from "redux/actions/loginActions";
 import "./UserNav.scss";
 
 const UserNav = (props) => {
-  const pageChangeHandler = () => {
-    window.location.replace("/");
+  const history = useHistory();
+
+  const gotoLogin = () => {
+    // localStorage.removeItem("persist:auth");
+    // return <Redirect path="/" component={Login}/>
+    history.push("/");
   };
+
   const menu = (
     <Menu>
       <Menu.Item key="1">
@@ -20,25 +24,26 @@ const UserNav = (props) => {
         </Link>
       </Menu.Item>
       <Menu.Item key="2">
-        <div onClick={pageChangeHandler}>
+        <div to="/" onClick={() => props.logout(gotoLogin)}>
           <PoweroffOutlined style={{ fontSize: "15px", color: "#888e98", padding: "10px" }} />
-          <span>Log out</span>
+          Log out
         </div>
       </Menu.Item>
     </Menu>
   );
+  // console.log(props.login);
+  const { user } = props.login;
+  // console.log(user);
 
-  // const user = useSelector((state) => state);
-  const { user } = props;
-  console.log(user);
   return (
     <Breadcrumb className="user-dropdown">
       <Breadcrumb.Item href="">
         {/* <MailOutlined style={{ fontSize: "20px", color: "#888e98" }} /> */}
         <Dropdown overlay={menu}>
-          <Link to="/clientpanel" className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
+          <Link to="" className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
             {/* robocapgoal@demo.com */}
             {user.userID}
+            <DownOutlined />
           </Link>
         </Dropdown>
       </Breadcrumb.Item>
@@ -47,12 +52,13 @@ const UserNav = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  const { user } = state.login;
   return {
-    user,
+    login: state.login,
   };
 };
-
-export default connect(mapStateToProps)(UserNav);
+const mapDispatchToProps = {
+  logout,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(UserNav);
 
 // export default UserNav;

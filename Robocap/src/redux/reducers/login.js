@@ -6,28 +6,20 @@ import {
   LOGIN_IN_PROGRESS,
   LOGIN_SUCCESS,
   LOGIN_FAILED,
-  //update password
-  UPDATE_PASSWORD_IN_PROGRESS,
-  UPDATE_PASSWORD_SUCCESS,
-  UPDATE_PASSWORD_FAILED,
-  //forget password
-  FORGOT_PASSWORD_IN_PROGRESS,
-  FORGOT_PASSWORD_SUCCESS,
-  FORGOT_PASSWORD_FAILED,
+  LOGOUT,
 } from "constants/action";
 import { IN_PROGRESS, SUCCESS, FAILED } from "constants/loader";
 
-const user = JSON.parse(localStorage.getItem("user"));
+// const user = JSON.parse(localStorage.getItem("user"));
 const initialState = {
   loginButtonUiState: null,
-  setPasswordButtonUiState: null,
-  forgotPasswordButtonUiState: null,
+  logOutButtonUiState: null,
   error: "",
   user: {},
+  uiState: SUCCESS,
 };
 
-
-const auth = (state = initialState, action) => {
+const login = (state = initialState, action) => {
   switch (action.type) {
     case VALIDATE_USER_IN_PROGRESS:
       return {
@@ -51,6 +43,12 @@ const auth = (state = initialState, action) => {
         error: action.payload.error,
         uiState: FAILED,
         user: {},
+      };
+    case LOGOUT:
+      return {
+        ...state,
+        user: action.payload,
+        logOutButtonUiState: SUCCESS,
       };
 
     case LOGIN_IN_PROGRESS:
@@ -76,49 +74,10 @@ const auth = (state = initialState, action) => {
         loginButtonUiState: FAILED,
         user: {},
       };
-    case UPDATE_PASSWORD_IN_PROGRESS:
-      return {
-        ...state,
-        setPasswordButtonUiState: IN_PROGRESS,
-        error: "",
-      };
 
-    case UPDATE_PASSWORD_SUCCESS:
-      return {
-        ...state,
-        setPasswordButtonUiState: SUCCESS,
-        error: "",
-      };
-
-    case UPDATE_PASSWORD_FAILED:
-      return {
-        ...state,
-        error: action.payload.error,
-        setPasswordButtonUiState: FAILED,
-      };
-    case FORGOT_PASSWORD_IN_PROGRESS:
-      return {
-        ...state,
-        forgotPasswordButtonUiState: IN_PROGRESS,
-        error: "",
-      };
-
-    case FORGOT_PASSWORD_SUCCESS:
-      return {
-        ...state,
-        forgotPasswordButtonUiState: SUCCESS,
-        error: "",
-      };
-
-    case FORGOT_PASSWORD_FAILED:
-      return {
-        ...state,
-        error: action.payload.error,
-        forgotPasswordButtonUiState: FAILED,
-      };
     default:
       return state;
   }
 };
 
-export default auth;
+export default login;

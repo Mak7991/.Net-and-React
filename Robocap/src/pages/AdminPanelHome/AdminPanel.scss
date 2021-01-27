@@ -1,0 +1,107 @@
+.admin-page {
+  background-color: #f6f8fc;
+  height: 100vh;
+  .ant-layout {
+    position: relative;
+    background: #f6f8fc;
+    display: flex;
+    .ant-layout-sider {
+      position: absolute;
+      height: 100vh;
+      background: #fff;
+      -webkit-transition: all 0.2s;
+      transition: all 0.2s;
+      padding-top: 20px;
+      z-index: 1;
+      float: right;
+    }
+  }
+  .rightMenu {
+    padding: 16px;
+    align-items: center;
+    float: right;
+    background: #fff;
+    .user-dropdown {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      margin: 0;
+      margin-right: 80px;
+      padding: 0;
+      color: rgba(0, 0, 0, 0.85);
+      font-variant: tabular-nums;
+      line-height: 1.5715;
+      list-style: none;
+      -webkit-font-feature-settings: "tnum";
+      font-feature-settings: "tnum", "tnum";
+      color: rgba(0, 0, 0, 0.45);
+      font-size: 14px;
+      float: right;
+    }
+  }
+  .inner-div {
+    padding: 20px;
+    .container {
+      max-width: 70%;
+      position: relative;
+      margin-left: auto;
+      margin-right: auto;
+      padding-right: 15px;
+      padding-left: 50px;
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 920px) {
+  .admin-page {
+    background-color: #f6f8fc;
+    height: 100vh;
+    .ant-layout {
+      position: relative;
+      background: #f6f8fc;
+      display: flex;
+      .ant-layout-sider {
+        position: absolute;
+        height: 100vh;
+        background: #fff;
+        -webkit-transition: all 0.2s;
+        transition: all 0.2s;
+        padding-top: 20px;
+        z-index: 1;
+      }
+    }
+    .rightMenu {
+      padding: 16px;
+      align-items: center;
+      float: right;
+      background: #fff;
+      .user-dropdown {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        margin: 0;
+        margin-right: 15px;
+        padding: 0;
+        color: rgba(0, 0, 0, 0.85);
+        font-variant: tabular-nums;
+        line-height: 1.5715;
+        list-style: none;
+        -webkit-font-feature-settings: "tnum";
+        font-feature-settings: "tnum", "tnum";
+        color: rgba(0, 0, 0, 0.45);
+        font-size: 14px;
+        float: right;
+      }
+    }
+    .inner-div {
+      padding: 10px;
+      .container {
+        max-width: 100%;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        padding-right: 5px;
+        padding-left: 5px;
+        padding-top: 100px;
+      }
+    }
+  }
+}

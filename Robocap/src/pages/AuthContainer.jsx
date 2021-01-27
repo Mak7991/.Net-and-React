@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import { Switch, Route, Redirect } from "react-router-dom";
 import Login from "pages/Login/Login";
-import ChangePassword from "pages/ChangePassword/ChangePassword";
+// import ChangePassword from "pages/ChangePassword/ChangePassword";
 import SetNewPassword from "pages/ChangePassword/SetNewPassword";
 import NotFound from "pages/NotFound/NotFound";
 // import Header from "components/shared/Header/Header";
@@ -16,7 +16,7 @@ class AuthContainer extends Component {
           <Route
             path={`${this.props.match.url}/changePassword`}
             exact
-            component={ChangePassword}
+            component={SetNewPassword}
           />
           <Route path={`${this.props.match.url}/setpassword`} exact component={SetNewPassword} />
           <Route

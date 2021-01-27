@@ -1,125 +1,137 @@
 import React, { Component } from "react";
 
 // component
-import PieGraph from "components/ClientPanelUiComponent/PieGraph/PieGraph"
+import PieGraph from "components/ClientPanelUiComponent/PieGraph/PieGraph";
+import TotalGraph from "components/ClientPanelUiComponent/AssetsGraph/TotalGraph";
+import ReturnGraph from "components/ClientPanelUiComponent/AssetsGraph/ReturnGraph";
+// import Async from "components/shared/Async/Async";
+import { getUserData } from "redux/actions/UserData";
+import NoData from "assets/images/mannageAssets.png";
 // libraries
 // Empty, ConfigProvider
-import { Collapse, Table, Space, } from "antd";
-// import { FundOutlined } from "@ant-design/icons";
-// import { Link } from "react-router-dom";
-// import NoData from "assets/images/mannageAssets.png";
+import { Collapse, Table, Empty, ConfigProvider } from "antd";
+import { connect } from "react-redux";
+// import axios from "axios"
 // scss
 import "./GoalDetail.scss";
 
 const { Panel } = Collapse;
-// const { Option } = Select;
 
 function callback(key) {
   // console.log(key);
 }
 
-const data = [
-  {
-    key: "1",
-    account: "DU1987191",
-    netvalue: "$53,706.67",
-    earning: "$8,785.81",
-    totalreturn: "19.66%",
-  },
-];
+let n = new Date();
+let y = n.getFullYear();
+let m = n.getMonth() + 1;
+let d = n.getDate();
+
+const customizeRenderEmpty = () => (
+  <div style={{ textAlign: "center" }}>
+    <Empty image={NoData} />
+  </div>
+);
+
 const accountColumns = [
   {
-    title: "Account",
-    dataIndex: "account",
-    key: "account",
-    render: (text) => <p href="/AccountDetail">{text}</p>,
+    title: "AccountID",
+    dataIndex: "acccountID",
+    key: "acccountID",
+    className: "accountID-row",
   },
   {
-    title: "Net Asset Value	",
-    dataIndex: "netvalue",
-    key: "netvalue",
+    title: "Current Worth",
+    dataIndex: "currentWorth",
+    key: "currentWorth",
+    align: "right",
+    className: "worth-row",
+    render: (text) => (
+      <>
+        <p>
+          {new Intl.NumberFormat().format(text)}.{`00`}
+        </p>
+      </>
+    ),
   },
   {
     title: "Earnings",
     dataIndex: "earning",
     key: "earning",
+    align: "right",
+    className: "earning-row",
+    render: (text) => (
+      <>
+        <p>
+          {new Intl.NumberFormat().format(text)}.{`00`}
+        </p>
+      </>
+    ),
   },
   {
-    title: "Total Return",
-    key: "totalreturn",
-    dataIndex: "totalreturn",
-  },
-  {
-    title: "Status",
-    key: "status",
-    render: () => (
-      <Space size="middle">
-        <p>Funded</p>
-      </Space>
+    title: "Investment",
+    key: "investment",
+    dataIndex: "investment",
+    align: "right",
+    className: "invest-row",
+    render: (text) => (
+      <>
+        <p>
+          {new Intl.NumberFormat().format(text)}.{`00`}
+        </p>
+      </>
     ),
   },
 ];
-// const assetsColumns = [
-//   {
-//     title: "Account",
-//     dataIndex: "account",
-//     key: "account",
-//     render: (text) => <a href="/AccountDetail">{text}</a>,
-//   },
-//   {
-//     title: "Balance",
-//     dataIndex: "netvalue",
-//     key: "netvalue",
-//   },
-//   {
-//     title: "Institute",
-//     dataIndex: "earning",
-//     key: "earning",
-//   },
-//   {
-//     title: "Account Type",
-//     key: "totalreturn",
-//     dataIndex: "totalreturn",
-//   },
-//   {
-//     title: "Operation",
-//     key: "status",
-//     render: () => (
-//       <Space size="middle">
-//         <p>Funded</p>
-//       </Space>
-//     ),
-//   },
-// ];
-
-// const customizeRenderEmpty = () => (
-//   <div style={{ textAlign: "center" }}>
-//     <Empty image={NoData} />
-//     <div className="link-account">
-//       <p>Link New Held-away Account</p>
-//       <Link className="link-acc-btn" to="/HeldAwayAccount">
-//         Link Held-away Acct
-//       </Link>
-//     </div>
-//   </div>
-// );
 
 class GoalDetail extends Component {
   state = {
     expandIconPosition: "right",
-    // customize: true,
+    customize: true,
   };
+
+  componentDidMount() {
+    const userID = this.props.login.user.userID;
+    this.props.getUserData(userID);
+  }
 
   onPositionChange = (expandIconPosition) => {
     this.setState({ expandIconPosition });
   };
-
   render() {
-    const { expandIconPosition } = this.state;
-    // const { customize } = this.state;
+    const { expandIconPosition, customize } = this.state;
+    // const { uiState, error } = this.props.curUserData;
+    const data = this.props.curUserData.accountlist?.map((userData) => {
+      // console.log(userData);
+      return {
+        key: userData.id,
+        acccountID: userData.acccountID,
+        currentWorth: userData.currentWorth,
+        earning: userData.earning,
+        investment: userData.investment,
+      };
+    });
 
     return (
       <div className="user-goal">
+        <div className="mannage-acct">
+          <h1>
+            Managed Accounts <span>(as of {m + "/" + d + "/" + y})</span>
+          </h1>
+          <ConfigProvider renderEmpty={customize && customizeRenderEmpty}>
+            <div className="accounts-table">
+              <Table columns={accountColumns} dataSource={data} bordered className="accounts-row" />
+            </div>
+          </ConfigProvider>
+          {/* <Table columns={accountColumns} dataSource={data} pagination={false} /> */}
+        </div>
+        <div className="user-graph">
+          <div className="user-total-assets-graph">
+            <TotalGraph />
+          </div>
+          <div className="user-total-return-graph">
+            <ReturnGraph />
+          </div>
+        </div>
         <Collapse
           defaultActiveKey={["1"]}
           onChange={callback}
@@ -138,38 +150,15 @@ class GoalDetail extends Component {
                   goal will help you determine your profile and then match it to an investment
                   strategy that's designed for investors like you.
                 </p>
-                {/* <Link to="/GoalForecaster">
-                  <FundOutlined style={{ marginRight: "5px", fontSize: "16px" }} />
-                  <a href="/GoalForeCaster">Goal Forecaster</a>
-                </Link> */}
               </div>
               <div className="goal-allocation">
                 <h1>Asset Allocation</h1>
                 <div>
-                  <PieGraph/>
+                  <PieGraph />
                 </div>
               </div>
             </div>
           </Panel>
-          <div className="mannage-acct">
-            <h1>
-              Managed Accounts <span>(as of 12/04/2019)</span>
-            </h1>
-            <Table columns={accountColumns} dataSource={data} pagination={false} />
-          </div>
-          {/* <div>
-            <div className="mannage-assets">
-              <h1>Held-away Accounts</h1>
-              <ConfigProvider renderEmpty={customize && customizeRenderEmpty}>
-                <Table
-                  columns={assetsColumns}
-                  pagination={false}
-                  loading={false}
-                  className="table"
-                />
-              </ConfigProvider>
-            </div>
-          </div> */}
         </Collapse>
         <br />
       </div>
@@ -177,4 +166,16 @@ class GoalDetail extends Component {
   }
 }
 
-export default GoalDetail;
+const mapStateToProps = (state) => {
+  return {
+    curUserData: state.curUserData,
+    login: state.login,
+  };
+};
+
+const mapDispatchToProps = {
+  getUserData,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(GoalDetail);
+
+// export default GoalDetail;

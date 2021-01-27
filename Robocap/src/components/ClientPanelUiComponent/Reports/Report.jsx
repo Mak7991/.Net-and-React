@@ -12,6 +12,11 @@ const reportsColumn = [
     title: "File Name",
     dataIndex: "filename",
     key: "filename",
+    render:(text)=>(
+      <>
+      <p>{text}</p>
+      </>
+    )
   },
   {
     title: "Date",

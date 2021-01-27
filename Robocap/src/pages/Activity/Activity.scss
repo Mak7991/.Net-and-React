@@ -1,6 +1,6 @@
 .activity-page {
   background-color: #f6f8fc;
-  height: 100vh;
+  height: 140vh;
   .account-activity {
     margin-top: 20px;
     padding: 20px;
@@ -46,8 +46,13 @@
         float: left;
         width: 25%;
         min-height: 1px;
-        .ant-select {
+        .ant-space {
           width: 100%;
+          .ant-space-item {
+            .ant-picker {
+              width: 100%;
+            }
+          }
         }
       }
       .end-date {
@@ -58,14 +63,33 @@
         float: left;
         width: 25%;
         min-height: 1px;
-        .ant-select {
+        .ant-space {
           width: 100%;
+          .ant-space-item {
+            .ant-picker {
+              width: 100%;
+            }
+          }
         }
       }
     }
     .activity-table {
       background-color: #fff;
       flex: 0 0 100%;
+      .activity-row {
+        .account-row {
+          width: 18%;
+        }
+        .volume-row {
+          width: 15%;
+        }
+        .order-row {
+          width: 10%;
+        }
+        .price-row {
+          width: 20%;
+        }
+      }
     }
   }
 }

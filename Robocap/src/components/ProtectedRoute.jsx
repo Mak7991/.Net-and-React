@@ -6,23 +6,21 @@ import { Redirect } from "react-router-dom";
 import Async from "components/shared/Async/Async";
 
 //actions
-import { userLogin } from "redux/actions/loginActions";
+// import { validiateUser } from "redux/actions/loginActions";
 import MoudleRouter from "modules/MoudleRouter";
 
 class ProtectedRoutes extends React.Component {
-  componentDidMount() {
-    this.props.userLogin();
-  }
+  // componentDidMount() {
+  //   this.props.validiateUser();
+  // }
 
   render() {
-    const { uiState, error, data } = this.props.login;
-    console.log(data);
+    const { user } = this.props.login;
+    // console.log(user);
 
     return (
       <Async
-        uiState={uiState}
-        error={error}
-        onSuccess={() => <MoudleRouter roleName={data.roleName} />}
+        onSuccess={() => <MoudleRouter roleName={user.roleName} />}
         onFailure={() => <Redirect to="/auth/login" />}
       />
     );
@@ -35,8 +33,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = {
-  userLogin,
-};
+// const mapDispatchToProps = {
+//   validiateUser,
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProtectedRoutes);
+export default connect(mapStateToProps)(ProtectedRoutes);

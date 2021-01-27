@@ -1,0 +1,36 @@
+.users-table{
+  .userID-row{
+    width: 5%;
+  }
+  .name-row{
+    width: 5%;
+  }
+  .email-row{
+    width: 8%;
+  }
+  .phone-row{
+    width: 8%;
+  }
+  .date-row{
+    width: 10%;
+  }
+}
+@media (min-width: 320px) and (max-width: 1024px) {
+  .users-table{
+    .userID-row{
+      width: 5%;
+    }
+    .name-row{
+      width: 16%;
+    }
+    .email-row{
+      width: 16%;
+    }
+    .phone-row{
+      width: 15%;
+    }
+    .date-row{
+      width: 18%;
+    }
+  }
+}

@@ -1,13 +1,11 @@
 import React from "react";
 
 // component
-
+import Container from "components/shared/Container/Container";
+import SetNewPassword from "pages/ChangePassword/SetNewPassword";
 // library
 // import { Route, Switch, Link } from "react-router-dom";
 import { Steps, Button, message } from "antd";
-import Container from "components/shared/Container/Container";
-import Header from "components/shared/Header/Header";
-import SetNewPassword from "pages/ChangePassword/SetNewPassword";
 // scss
 // import "./Documents.scss";
 const { Step } = Steps;
@@ -19,10 +17,6 @@ const steps = [
   },
   {
     title: "Set new password",
-    content: <SetNewPassword />,
-  },
-  {
-    title: "Success",
     content: <SetNewPassword />,
   },
 ];
@@ -41,7 +35,7 @@ const ChangePassword = () => {
   return (
     <>
       <div className="change-passowrd">
-        <Header />
+        {/* <Header /> */}
         <Container>
           <div className="set-password">
             <Steps current={current}>
@@ -59,7 +53,7 @@ const ChangePassword = () => {
               {current === steps.length - 1 && (
                 <Button
                   type="primary"
-                  onClick={() => message.success("Processing complete!")}
+                  onClick={() => message.success("New Password has been set successfully!")}
                   htmlType="submit">
                   Done
                 </Button>

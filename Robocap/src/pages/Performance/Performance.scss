@@ -79,19 +79,31 @@
       .radio-tag {
         display: inline-flex;
         align-items: center;
-        white-space: nowrap;
+        // white-space: nowrap;
         vertical-align: middle;
         border: 1px solid #d8dce6;
         border-radius: 4px;
         height: 32px;
         line-height: 32px;
-        padding: 0 16px;
+        padding: 0 ;
         background: #fff;
         color: #1e1e1e;
         font-size: 14px;
         cursor: pointer;
         margin-right: 8px;
         margin-bottom: 12px;
+      }
+      .type-field {
+        padding-left: 8px;
+        padding-right: 8px;
+        display: block;
+        box-sizing: border-box;
+        float: left;
+        width: 25%;
+        min-height: 1px;
+        .ant-select {
+          width: 100%;
+        }
       }
     }
     .ant-spin-nested-loading {

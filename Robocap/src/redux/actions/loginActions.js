@@ -1,53 +1,48 @@
 import {
-  // validate user
-  // VALIDATE_USER_IN_PROGRESS,
-  // VALIDATE_USER_SUCCESS,
-  // VALIDATE_USER_FAILED,
-  // // login
+  // login & logout
   LOGIN_IN_PROGRESS,
   LOGIN_SUCCESS,
   LOGIN_FAILED,
+  LOGOUT,
+  // validate user
+  VALIDATE_USER_IN_PROGRESS,
+  VALIDATE_USER_SUCCESS,
+  VALIDATE_USER_FAILED,
 } from "constants/action";
 import axios from "axios";
-const REACT_APP_SERVER_URL = "http://localhost:8085/api/";
+
+import { REACT_APP_SERVER_URL } from "server/server";
 
 export const userLogin = (emailID, password) => {
   // console.log(emailID + " " + password);
-  const request = axios.post(REACT_APP_SERVER_URL + "Login", {
+  const response = axios.post(REACT_APP_SERVER_URL + "Login", {
     emailID,
     password,
   });
   return (dispatch) => {
-    request
+    dispatch(setLoginInProgress());
+    console.log(response,"LOGIN_IN_PROGRESS");
+    response
       .then((response) => {
-        // console.log(res, "LOGIN_SUCCESS");
-        dispatch(setLoginInProgress(response.data));
         const { data } = response;
-        // console.log(data);
-        if (data !== "Invalid UserName/Password !") {
-          if (data.token != null) {
-            if (data.roleName === "User") {
-              // store username and jwt token in local storage to keep user logged in between page refreshes
-              dispatch(setLoginSuccess(data));
-              localStorage.setItem("Client", JSON.stringify(response.data));
-            } else if (data.roleName === "Admin") {
-              // store username and jwt token in local storage to keep user logged in between page refreshes
-              dispatch(setLoginSuccess(data));
-              localStorage.setItem("Admin", JSON.stringify(response.data));
-            }
-            // return true to indicate successful login
-            return data;
-          } else {
-            // return false to indicate failed login
-            return null;
-          }
+        console.log(response, "LOGIN_SUCCESS");
+
+        if (data.roleName === "User") {
+          // store username and jwt token in local storage to keep user logged in between page refreshes
+          dispatch(setLoginSuccess(response.data));
+          
+        } else if (data.roleName === "Admin") {
+          // store username and jwt token in local storage to keep user logged in between page refreshes
+          dispatch(setLoginSuccess(response.data));
         }
+        // return true to indicate successful login
+        // return Promise.resolve(data);
       })
-      .catch((err) => {
-        // console.log(err.response, "LOGIN_FAILED");
-        dispatch(setLoginError(err.message));
-        return err;
-      });
+      .catch((error) => {
+        dispatch(setLoginError(error.message));
+        console.log(error.message, "LOGIN_FAILED");
+        return error;
+      })
   };
 };
 
@@ -74,26 +69,86 @@ const setLoginError = (error) => {
   };
 };
 
-// export const validiateUser=()=>{
-
-// }
-
-export const register = (UserName, emailID, code, password, confirmPassword) => {
-  return axios.post(REACT_APP_SERVER_URL + "Registration?EmailID=", {
-    UserName,
-    emailID,
-    code,
-    password,
-    confirmPassword,
+// validiate user
+export const validiateUser = (user) => {
+  const response = axios.post(REACT_APP_SERVER_URL + "Login", {
+    user,
   });
+  return (dispatch) => {
+    response
+      .then((response) => {
+        console.log(response, "LOGIN_SUCCESS");
+        dispatch(validationInProgress());
+        const { data } = response;
+        console.log(data);
+        if (data !== "Invalid UserName/Password !") {
+          if (data.token != null) {
+            if (data.roleName === "User") {
+              // store username and jwt token in local storage to keep user logged in between page refreshes
+              dispatch(validationSuccessful(data));
+              // localStorage.setItem("client", JSON.stringify(response.data));
+            } else if (data.roleName === "Admin") {
+              // store username and jwt token in local storage to keep user logged in between page refreshes
+              dispatch(validationSuccessful(data));
+              // localStorage.setItem("admin", JSON.stringify(response.data));
+            }
+            // return true to indicate successful login
+            return data;
+          } else {
+            // return false to indicate failed login
+            return null;
+          }
+        }
+      })
+      .catch((err) => {
+        // console.log(err.response, "LOGIN_FAILED");
+        dispatch(validationError(err.message));
+        return err;
+      });
+  };
 };
 
-const logout = () => {
-  localStorage.removeItem("data");
+const validationInProgress = () => {
+  return {
+    type: VALIDATE_USER_IN_PROGRESS,
+    payload: {},
+  };
 };
+
+const validationSuccessful = (user) => {
+  return {
+    type: VALIDATE_USER_SUCCESS,
+    payload: {
+      user,
+    },
+  };
+};
+const validationError = (err) => {
+  return {
+    type: VALIDATE_USER_FAILED,
+    payload: {
+      err,
+    },
+  };
+};
+export const logout = (gotoLogin) => {
+  return (dispatch) => {
+    dispatch(userLogout());
+    console.log("LOGOUT");
+
+    gotoLogin();
+  };
+};
+const userLogout = () => {
+  return {
+    type: LOGOUT,
+    payload: {},
+  };
+};
+// dispatch(setVerificationCodeError(err.message));
 
 export default {
-  register,
   userLogin,
+  validiateUser,
   logout,
 };

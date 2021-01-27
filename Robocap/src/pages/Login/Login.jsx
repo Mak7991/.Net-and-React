@@ -14,14 +14,22 @@ import "./Login.scss";
 const Login = (props) => {
   const onFinish = async (values) => {
     const response = await props.userLogin(values.emailID, values.password);
+    // console.log(response)
   };
+  // props.userLogin().then(res=>{
+  //   console.log(res
+  //   })
 
-  const { loginButtonUiState, error } = props.login;
+  const { loginButtonUiState, error, user } = props.login;
+
   if (loginButtonUiState === SUCCESS) {
-    return <Redirect to="/clientpanel" />;
-  } else if (loginButtonUiState === FAILED) {
-    return <Alert message={error} type="error" showIcon />;
+    if (user.roleName === "User") {
+      return <Redirect to="/clientpanel" />;
+    } else if (user.roleName === "Admin") {
+      return <Redirect to="/adminpanel/RegisterUserlist" />;
+    }
   }
+
   return (
     <div className="login">
       <div className="login-body">
@@ -36,7 +44,6 @@ const Login = (props) => {
             <h1>Login To Your Account</h1>
           </div>
           <Form
-            name="normal_login"
             layout="vertical"
             className="form"
             onFinish={onFinish}
@@ -48,14 +55,18 @@ const Login = (props) => {
               name="emailID"
               rules={[
                 {
+                  type: "email",
+                  message: "The input is not valid E-mail!",
+                },
+                {
                   required: true,
-                  message: "Email Address is required",
+                  message: "Please input your E-mail!",
                 },
               ]}>
-              <Input placeholder="Email Address" />
+              <Input type="email" placeholder="Email Address" />
             </Form.Item>
             <Form.Item
-              label="Password"
+              label="Password:"
               name="password"
               rules={[
                 {
@@ -63,7 +74,11 @@ const Login = (props) => {
                   message: "Password is required",
                 },
               ]}>
-              <Input type="password" placeholder="Password" />
+              <Input.Password
+                placeholder="Password"
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                title="Invalid password. Password must contains upper and lower case character, digit and special character!"
+              />
             </Form.Item>
             <Form.Item>
               <Link className="login-form-forgot" to="/auth/setpassword" style={{ float: "right" }}>
@@ -71,7 +86,7 @@ const Login = (props) => {
               </Link>
             </Form.Item>
             <Button
-              loading={loginButtonUiState === IN_PROGRESS ? true : false}
+              // loading={loginButtonUiState === IN_PROGRESS ? false : true}
               className="submit-button"
               htmlType="submit"
               type="primary">
@@ -79,8 +94,10 @@ const Login = (props) => {
             </Button>
           </Form>
         </div>
+        {loginButtonUiState === FAILED && (
+          <Alert message={error} type="error" showIcon closable />
+        )}
       </div>
-      {loginButtonUiState === FAILED && <Alert message={error} type="error" showIcon />}
     </div>
   );
 };

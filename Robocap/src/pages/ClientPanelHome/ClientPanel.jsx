@@ -1,11 +1,10 @@
 import React from "react";
 
 // component
-import TotalGraph from "components/ClientPanelUiComponent/AssetsGraph/TotalGraph";
-import ReturnGraph from "components/ClientPanelUiComponent/AssetsGraph/ReturnGraph";
 import Header from "components/shared/Header/Header";
 import UserDetail from "components/ClientPanelUiComponent/UserDetail/UserDetail";
 import GoalDetail from "components/ClientPanelUiComponent/GoalDetail/GoalDetail";
+import AccountStatus from "components/ClientPanelUiComponent/AccountStatus/AccountStatus";
 // library
 // import { PlusOutlined } from "@ant-design/icons";
 import { Container } from "react-bootstrap";
@@ -19,19 +18,22 @@ function ClientPanel() {
       <Header />
       <Container>
         <section>
+          <AccountStatus />
+        </section>
+        <section>
           <UserDetail />
         </section>
-        <div className="user-graph">
+        <section className="user-goal">
+          <GoalDetail />
+        </section>
+        {/* <div className="user-graph">
           <div className="user-total-assets-graph">
             <TotalGraph />
           </div>
           <div className="user-total-return-graph">
             <ReturnGraph />
           </div>
-        </div>
-        <section className="user-goal">
-          <GoalDetail />
-        </section>
+        </div> */}
         {/* <section>
           <div className="investment-goal">
             <Link to="/newaccount" className="investment-goal-btn">
@@ -41,8 +43,8 @@ function ClientPanel() {
               <span>Learn about more investment goal</span>
             </Link>
           </div>
-        </section> */}
-        {/* <section className="manage-assets-summary">
+        </section> 
+        <section className="manage-assets-summary">
           <h1>Held-away Accounts</h1>
           <div className="account-list-wrap">
             <div className="list-banner">

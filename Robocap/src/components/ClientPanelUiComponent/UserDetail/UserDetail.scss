@@ -3,7 +3,9 @@
   display: flex;
   width: 100%;
   height: 100%;
-  padding: 20px ;
+  // padding: 20px ;
+  margin-top: 20px;
+  margin-bottom: 20px;
   .sub-detail-panel {
     flex: 0 0 100%;
     display: flex;
@@ -62,7 +64,7 @@
       }
     }
     .assets-detail {
-      flex: 0 0 50%;
+      flex: 0 0 49.5%;
       background-color: #fff;
       border-radius: 10px;
       height: 100%;
@@ -110,4 +112,122 @@
       }
     }
   }
+}
+
+@media (min-width: 320px) and (max-width: 920px){
+  .detail-panel {
+    background-color: #f6f8fc;
+    flex-direction: column;
+    flex: 0 0 100%;
+    height: 100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    .sub-detail-panel {
+      flex: 0 0 100%;
+      flex-direction: column;
+      .user-detail {
+        flex: 0 0 100%;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 10px;
+        padding-left: 20px;
+        padding-right: 10px;
+        padding-top: 10px;
+        margin-right: 0px;
+        margin-bottom: 10px;
+        h5 {
+          color: #888e98;
+          font-size: 16px;
+        }
+        .contact {
+          display: flex;
+          padding-top: 10px;
+          p {
+            font-size: 16px;
+            color: #888e98;
+          }
+          .anticon {
+            color: #888e98;
+            font-size: 20px;
+            margin-right: 22px;
+          }
+        }
+        .email {
+          display: flex;
+          padding-top: 10px;
+          p {
+            font-size: 16px;
+            color: #888e98;
+          }
+          .anticon {
+            color: #888e98;
+            font-size: 20px;
+            margin-right: 22px;
+          }
+        }
+        .address {
+          display: flex;
+          padding-top: 10px;
+          p {
+            font-size: 16px;
+            color: #888e98;
+          }
+          .anticon {
+            color: #888e98;
+            font-size: 20px;
+            margin-right: 22px;
+          }
+        }
+      }
+      .assets-detail {
+        flex: 0 0 100%;
+        background-color: #fff;
+        border-radius: 10px;
+        height: 100%;
+        align-items: center;
+        .total-values {
+          padding: 20px;
+          .new-account {
+            text-align: right;
+            color: #2196f3;
+            .new-account-btn {
+              background-color: transparent;
+              padding: 10px ;
+              font-size: 16px;
+              border: 1px solid #2196f3;
+              border-radius: 4px;
+              height: 40px;
+              cursor: pointer;
+              .btn-icon {
+                background-color: #2196f3;
+                margin-right: 5px;
+                border-radius: 100%;
+              }
+            }
+          }
+          .user-assets-detail {
+            display: flex;
+            padding-top: 10px;
+            .icon {
+              width: 50px;
+              height: 50px;
+              padding: 2px;
+              margin-right: 10px;
+            }
+            h5 {
+              padding: 2px;
+              font-size: 16px;
+              color: #888e98;
+            }
+            p {
+              font-size: 16px;
+              color: black;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+  }
+   
 }

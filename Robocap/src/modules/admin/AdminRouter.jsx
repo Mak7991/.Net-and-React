@@ -1,17 +1,17 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import NotFound from "pages/NotFound/NotFound";
-import Header from "components/shared/Header/Header";
+import AdminHeader from "components/shared/AdminHeader/AdminHeader";
 import AdminPanel from "pages/AdminPanelHome/AdminPanel";
 // import AdminHeaderContainer from "modules/admin/views/AdminHeaderContainer/AdminHeaderContainer";
 
 function AdminRouter(props) {
   return (
     <>
-      <Header/>
+      <AdminHeader/>
       <Switch>
-        <Redirect exact from="/" to="/AdminPanel" />
-        <Route path="/AdminPanel" component={AdminPanel} />
+        <Redirect exact from="/" to="/adminPanel" />
+        <Route path="/adminPanel" component={AdminPanel} />
         <Route component={NotFound} />
       </Switch>
     </>
