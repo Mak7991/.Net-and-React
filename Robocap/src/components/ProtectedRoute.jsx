@@ -1,40 +1,18 @@
-import React from "react";
-import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
-// import { useSelector } from "react-redux";
-// components
-import Async from "components/shared/Async/Async";
+import React from 'react'
+// import { connect } from 'react-redux'
+import { Route, Redirect } from 'react-router-dom';
+import {setLoginSuccess} from 'redux/actions/loginActions'
 
-//actions
-// import { validiateUser } from "redux/actions/loginActions";
-import MoudleRouter from "modules/MoudleRouter";
+export const ProtectedRoute = ({component: Component, ...rest}) => {
 
-class ProtectedRoutes extends React.Component {
-  // componentDidMount() {
-  //   this.props.validiateUser();
-  // }
-
-  render() {
-    const { user } = this.props.login;
-    // console.log(user);
-
-    return (
-      <Async
-        onSuccess={() => <MoudleRouter roleName={user.roleName} />}
-        onFailure={() => <Redirect to="/auth/login" />}
-      />
-    );
-  }
+  return (
+    <Route {...rest} render={props => (
+      setLoginSuccess() ?
+          <Component {...props} />
+      : <Redirect to="/Login" />
+  )} />
+  )
 }
 
-const mapStateToProps = (state) => {
-  return {
-    login: state.login,
-  };
-};
+export default ProtectedRoute;
 
-// const mapDispatchToProps = {
-//   validiateUser,
-// };
-
-export default connect(mapStateToProps)(ProtectedRoutes);

@@ -15,9 +15,9 @@ const initilastate = {
   error: "",
   totalManageGraph: [],
   totalReturnGraph:[],
-  uiStateGetTotalManageGraphData: IN_PROGRESS,
+  uiStateGetTotalManageGraphData: null,
   errorTotalManageGraphData: "",
-  uiStateGetTotalReturnGraphData: IN_PROGRESS,
+  uiStateGetTotalReturnGraphData: null,
   errorTotalReturnGraphData: "",
 };
 

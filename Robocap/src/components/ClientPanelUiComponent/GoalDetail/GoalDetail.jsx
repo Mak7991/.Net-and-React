@@ -1,9 +1,10 @@
-import React, { Component } from "react";
+import React, { Component, Suspense } from "react";
 
 // component
 import PieGraph from "components/ClientPanelUiComponent/PieGraph/PieGraph";
 import TotalGraph from "components/ClientPanelUiComponent/AssetsGraph/TotalGraph";
-import ReturnGraph from "components/ClientPanelUiComponent/AssetsGraph/ReturnGraph";
+// import ReturnGraph from "components/ClientPanelUiComponent/AssetsGraph/ReturnGraph";
+
 // import Async from "components/shared/Async/Async";
 import { getUserData } from "redux/actions/UserData";
 import NoData from "assets/images/mannageAssets.png";
@@ -14,6 +15,9 @@ import { connect } from "react-redux";
 // import axios from "axios"
 // scss
 import "./GoalDetail.scss";
+import Loader from "components/shared/Loader/Loader";
+
+const ReturnGraph = React.lazy(() => import('components/ClientPanelUiComponent/AssetsGraph/ReturnGraph'));
 
 const { Panel } = Collapse;
 
@@ -129,7 +133,9 @@ class GoalDetail extends Component {
             <TotalGraph />
           </div>
           <div className="user-total-return-graph">
-            <ReturnGraph />
+            <Suspense fallback={<div><Loader/></div>}>
+              <ReturnGraph />
+            </Suspense>
           </div>
         </div>
         <Collapse

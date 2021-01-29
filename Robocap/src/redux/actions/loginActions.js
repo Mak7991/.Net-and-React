@@ -26,23 +26,26 @@ export const userLogin = (emailID, password) => {
       .then((response) => {
         const { data } = response;
         console.log(response, "LOGIN_SUCCESS");
-
         if (data.roleName === "User") {
           // store username and jwt token in local storage to keep user logged in between page refreshes
+          localStorage.setItem('currentUser', JSON.stringify({roleName: data.roleName }));
           dispatch(setLoginSuccess(response.data));
           
         } else if (data.roleName === "Admin") {
           // store username and jwt token in local storage to keep user logged in between page refreshes
+          localStorage.setItem('AdminUser', JSON.stringify({roleName: data.roleName }));
           dispatch(setLoginSuccess(response.data));
         }
-        // return true to indicate successful login
-        // return Promise.resolve(data);
+        else if(dispatch(setLoginError(response.data))){
+          console.log(response.data, "LOGIN_FAILED");
+          return response.data
+        }
       })
-      .catch((error) => {
-        dispatch(setLoginError(error.message));
-        console.log(error.message, "LOGIN_FAILED");
-        return error;
-      })
+      // .catch((response) => {
+      //   dispatch(setLoginError(response.data));
+      //   console.log(response.data, "LOGIN_FAILED");
+      //   return response.data;
+      // })
   };
 };
 
@@ -52,7 +55,7 @@ const setLoginInProgress = () => {
     payload: {},
   };
 };
-const setLoginSuccess = (user) => {
+export const setLoginSuccess = (user) => {
   return {
     type: LOGIN_SUCCESS,
     payload: {

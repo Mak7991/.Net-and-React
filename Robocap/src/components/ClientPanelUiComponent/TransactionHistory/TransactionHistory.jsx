@@ -3,7 +3,6 @@ import React from "react";
 import Async from "components/shared/Async/Async";
 import { getTransactionHistory } from "redux/actions/ManageTransfer";
 import NoData from "assets/images/mannageAssets.png";
-import { IN_PROGRESS, SUCCESS, FAILED } from "constants/loader";
 // library
 import { Tabs, Table, ConfigProvider, Empty } from "antd";
 import { connect } from "react-redux";

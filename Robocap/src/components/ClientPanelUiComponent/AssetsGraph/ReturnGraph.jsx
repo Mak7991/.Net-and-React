@@ -33,6 +33,7 @@ const ReturnGraph = (props) => {
   // console.log(totalReturnGraph);
 
   const returnData = totalReturnGraph ? Object.values(totalReturnGraph):[]
+  // const returnData = Object.values(totalReturnGraph)
   // console.log(returnData)
 
   const options = {

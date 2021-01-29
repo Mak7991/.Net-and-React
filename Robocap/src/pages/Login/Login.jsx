@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // component
 import Alert from "components/shared/Alert/Alert";
@@ -12,15 +12,14 @@ import { connect } from "react-redux";
 import "./Login.scss";
 
 const Login = (props) => {
+  // const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   const onFinish = async (values) => {
     const response = await props.userLogin(values.emailID, values.password);
-    // console.log(response)
+    // setIsAuthenticated(true);
   };
-  // props.userLogin().then(res=>{
-  //   console.log(res
-  //   })
 
-  const { loginButtonUiState, error, user } = props.login;
+  const { loginButtonUiState, user } = props.login;
 
   if (loginButtonUiState === SUCCESS) {
     if (user.roleName === "User") {
@@ -28,7 +27,7 @@ const Login = (props) => {
     } else if (user.roleName === "Admin") {
       return <Redirect to="/adminpanel/RegisterUserlist" />;
     }
-  }
+  } 
 
   return (
     <div className="login">
@@ -86,7 +85,7 @@ const Login = (props) => {
               </Link>
             </Form.Item>
             <Button
-              // loading={loginButtonUiState === IN_PROGRESS ? false : true}
+              loading={loginButtonUiState === IN_PROGRESS ? true : false }
               className="submit-button"
               htmlType="submit"
               type="primary">
@@ -94,9 +93,7 @@ const Login = (props) => {
             </Button>
           </Form>
         </div>
-        {loginButtonUiState === FAILED && (
-          <Alert message={error} type="error" showIcon closable />
-        )}
+        {loginButtonUiState === FAILED && <Alert message={"Invalid UserID / Password "} type="error" showIcon closable />}
       </div>
     </div>
   );

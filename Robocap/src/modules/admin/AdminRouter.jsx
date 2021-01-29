@@ -10,8 +10,8 @@ function AdminRouter(props) {
     <>
       <AdminHeader/>
       <Switch>
-        <Redirect exact from="/" to="/adminPanel" />
-        <Route path="/adminPanel" component={AdminPanel} />
+        {/* <Redirect exact from="/" to="/adminPanel" /> */}
+        <Route exact path="/adminPanel" component={AdminPanel} />
         <Route component={NotFound} />
       </Switch>
     </>
